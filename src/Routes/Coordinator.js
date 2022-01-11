@@ -29,3 +29,7 @@ export const goToSearch = (history) => {
 export const goToSignUp = (history) => {
     history.push("/cadastrar")
 }
+
+export const goToSignAddress = (history) => {
+    history.push("/cadastrarendereco")
+}
