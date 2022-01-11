@@ -6,15 +6,17 @@ export const Login = (body, history) => {
   axios
     .post(`${BASE_URL}/login`, body)
     .then((res) => {
-      localStorage.getItem("token", res.data.token);
+      localStorage.setItem("token", res.data.token);
+      if(res.data.user.hasAddress === false) {
+        goToSignAddress(history);
+      }else{
         goToHome(history);
+      } 
     })
     .catch((err) => {
-        alert(err.response.data.message);
+      alert(err.response.data.message);
       if (err.response.data.message === "Usuário não encontrado") {
         goToSignUp(history);
-      } else if(err.response.data.hasAdress === false) {
-        goToSignAddress(history)
       }
     });
 };
