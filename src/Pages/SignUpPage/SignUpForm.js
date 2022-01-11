@@ -43,7 +43,7 @@ const SignUpForm = () => {
                         name={"cpf"}
                         value={form.cpf}
                         onChange={handleInputOnChange}
-                        label={"CPF"}
+                        label={"CPF: 000.000.000-00"}
                         type={"cpf"}
                         variant={"outlined"}
                         fullWidth
