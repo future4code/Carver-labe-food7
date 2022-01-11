@@ -40,7 +40,7 @@ const LoginForm = () => {
           required
         />
         <Button fullWidth variant="contained" type="submit">
-          <p>Criar</p>
+          <p>Enviar</p>
         </Button>
       </form>
     </div>

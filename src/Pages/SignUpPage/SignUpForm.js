@@ -6,12 +6,16 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
 const SignUpForm = () => {
-    const {form, handleInputOnChange, clear} = useForm({name:"", email:"", cpf:"", password:""})
+    const {form, handleInputOnChange, clear} = useForm({name:"", email:"", cpf:"", password:"", password2:""})
     const history = useHistory()
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        SignUp(form, clear, history)
+        if(form.password === form.password2){
+            SignUp(form, clear, history)
+        } else {
+            alert("Sua senha não é igual a confirmação")
+        }
     }
 
     return (
@@ -61,6 +65,17 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
+                    <TextField
+                        name={"password2"}
+                        value={form.password2}
+                        onChange={handleInputOnChange}
+                        label={"Confirmar Senha"}
+                        type={"password"}
+                        variant={"outlined"}
+                        fullWidth
+                        margin={"dense"}
+                        required
+                    />
                     <Button 
                     fullWidth 
                     variant="contained"
@@ -73,4 +88,4 @@ const SignUpForm = () => {
     )
 }
 
-export default SignUpForm; 
+export default SignUpForm;
