@@ -11,7 +11,7 @@ const SignUpPage = () => {
             <h4> Cadastrar </h4>
             <SignUpForm/>
         </div>
-    )
+    ) 
 }
 
 export default SignUpPage
