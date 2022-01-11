@@ -1,36 +1,34 @@
-import React, {useState} from "react";
+import React from "react";
 import { SignUp } from '../../Services/Access'
 import { useHistory } from "react-router-dom";
-import { CircularProgress } from "@mui/material";
 import useForm from '../../Hooks/useForm'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
-
-
-const SignUpForm = ({setRightButtonText}) => {
+const SignUpForm = () => {
     const {form, handleInputOnChange, clear} = useForm({name:"", email:"", cpf:"", password:""})
     const history = useHistory()
-    const [isLoading, setIsLoading] = useState("")
 
     const onSubmitForm = (event) => {
         event.preventDefault()
-        SignUp(form, clear, history, setRightButtonText, setIsLoading)
+        SignUp(form, clear, history)
     }
 
     return (
             <div>
                 <form onSubmit={onSubmitForm}>
-                    <input
+                    <TextField
                         name={"name"}
                         value={form.username}
                         onChange={handleInputOnChange}
-                        label={"Nome"}
+                        label={"Nome e Sobrenome"}
                         type={"name"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
                         required
                     />
-                    <input
+                    <TextField
                         name={"email"}
                         value={form.email}
                         onChange={handleInputOnChange}
@@ -41,18 +39,18 @@ const SignUpForm = ({setRightButtonText}) => {
                         margin={"dense"}
                         required
                     />
-                    <input
+                    <TextField
                         name={"cpf"}
                         value={form.cpf}
                         onChange={handleInputOnChange}
-                        label={"E-mail"}
-                        type={"email"}
+                        label={"CPF"}
+                        type={"cpf"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
                         required
                     />
-                    <input
+                    <TextField
                         name={"password"}
                         value={form.password}
                         onChange={handleInputOnChange}
@@ -63,13 +61,13 @@ const SignUpForm = ({setRightButtonText}) => {
                         margin={"dense"}
                         required
                     />
-                    <button 
+                    <Button 
                     fullWidth 
                     variant="contained"
                     type="submit"
                     >
-                        {isLoading ? <CircularProgress color={"inherit"} size={24}/> : <p>CADASTRAR</p>}
-                    </button>
+                    <p>Criar</p>
+                    </Button>
                 </form>
             </div>
     )
