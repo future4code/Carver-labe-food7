@@ -3,7 +3,7 @@ import { useUnprotectedPage } from "../../Hooks/useUnprotectedPage"
 import SignUpForm from './SignUpForm'
 
 const SignUpPage = () => {
-    /* useUnprotectedPage() */
+    useUnprotectedPage()
     
     return (
         <div>
