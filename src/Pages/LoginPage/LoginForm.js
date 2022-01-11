@@ -5,7 +5,7 @@ import useForm from "../../Hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-const SignUpForm = () => {
+const LoginForm = () => {
   const { form, handleInputOnChange } = useForm({ email: "", password: "" });
   const history = useHistory();
 
@@ -47,4 +47,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default LoginForm;

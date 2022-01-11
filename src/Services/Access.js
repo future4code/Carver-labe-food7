@@ -11,7 +11,9 @@ export const Login = (body, history) => {
     })
     .catch((err) => {
       alert(err.response.data.message);
-      goToSignUp(history);
+      if(err.response.data.message === "Usuário não encontrado") {
+        goToSignUp(history)};
+      
     });
 };
 
@@ -31,3 +33,22 @@ export const SignUp = (body, clear, history) => {
       );
     });
 };
+
+export const SignAddress = (body, clear, history) => {
+    axios.put(`${BASE_URL}/address`, body,{
+        headers: {
+            auth: localStorage.getItem('token')
+        }
+    })
+    .then((res)=>{
+        localStorage.setItem("token", res.data.token)
+        alert("Endereço cadastrado com sucesso!")
+        clear()
+        goToHome(history)
+    })
+    .catch((err)=>{
+        console.log(err.response.data.message)
+        alert("Ocorreu um erro! tente novamente!")
+    })
+
+}
