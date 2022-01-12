@@ -73,3 +73,21 @@ export const EditProfile = (body, history) => {
     console.log(err.message);
   });
 }
+
+export const EditAddress = (body, history) => {
+  axios
+    .put(`${BASE_URL}/address`, body, {
+      headers: {
+        auth: localStorage.getItem("token"),
+      },
+    })
+    .then((res) => {
+      localStorage.setItem("token", res.data.token);
+      alert("Endereço atualizado com sucesso!");
+      goToProfile(history);
+    })
+    .catch((err) => {
+      console.log(err.message);
+      alert("Ocorreu um erro! tente novamente!");
+    });
+};

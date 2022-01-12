@@ -21,7 +21,6 @@ const HomePage = () => {
     setFiltroTipo(value);
   };
 
-
   const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
       .filter((restaurante) => {
         return (
@@ -47,7 +46,7 @@ const HomePage = () => {
 
       return (
         <FeedContainer>
-          <TextMenu>Rapp4</TextMenu>
+          <TextMenu>Rappi4</TextMenu>
           <label>
             <TextField
               name={"filtroRestaurante"}
