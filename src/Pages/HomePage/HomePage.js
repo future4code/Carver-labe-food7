@@ -48,7 +48,6 @@ const HomePage = () => {
       return (
         <FeedContainer>
           <TextMenu>Rapp4</TextMenu>
-          <Menu />
           <label>
             <TextField
               name={"filtroRestaurante"}
@@ -74,6 +73,7 @@ const HomePage = () => {
             <strong onClick={() => handleTipe("Mexicana")}>Mexicana</strong>
           </p>
           {renderRestaurantes}
+          <Menu />
         </FeedContainer>
       );
 
