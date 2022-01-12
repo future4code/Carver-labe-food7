@@ -11,7 +11,14 @@ import { FeedContainer, TextMenu } from "./styled";
 const HomePage = () => {
   useProtectedPage();
 
+
+    const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
+
+    const {form, handleInputOnChange} = useForm({filtroRestaurante:"" })
+    const [filtroTipo, setFiltroTipo] = useState("")
+
   const restaurantes = useRequestData([], `${BASE_URL}/restaurants`);
+
 
   const { form, handleInputOnChange } = useForm({ filtroRestaurante: "" });
   const [filtroTipo, setFiltroTipo] = useState("");
@@ -45,6 +52,42 @@ const HomePage = () => {
         );
       });
 
+
+    return (
+        <div>
+            <h1>HOME</h1>
+
+            <h1>RESTAURANTES</h1>
+            <label>
+            <TextField
+                        name={"filtroRestaurante"}
+                        value={form.filtroRestaurante}
+                        onChange={handleInputOnChange}
+                        label={"Restaurante"}
+                        type={"text"}
+                        variant={"outlined"}
+                        fullWidth
+                        margin={"dense"}
+                        required
+                    />
+            </label>
+            <p>
+            <strong onClick={()=>handleTipe("Hamburguer")}>Hamburguer   </strong>
+            <strong onClick={()=>handleTipe("Asiática")} >Asiática   </strong>
+            <strong onClick={()=>handleTipe("Massas")} >Massas   </strong>
+            <strong onClick={()=>handleTipe("Saudável")} >Saudável</strong>
+            <strong onClick={()=>handleTipe("Italiana")} >Italiana</strong>
+            <strong onClick={()=>handleTipe("Sorvetes")} >Sorvetes</strong>
+            <strong onClick={()=>handleTipe("Carnes")} >Carnes</strong>
+            <strong onClick={()=>handleTipe("Baiana")} >Baiana</strong>
+            <strong onClick={()=>handleTipe("Petiscos")} >Petiscos</strong>
+            <strong onClick={()=>handleTipe("Mexicana")} >Mexicana</strong>
+            </p>
+            {renderRestaurantes}
+        </div>
+    )
+}
+
   return (
     <FeedContainer>
       <TextMenu>Rapp4</TextMenu>
@@ -77,5 +120,6 @@ const HomePage = () => {
     </FeedContainer>
   );
 };
+
 
 export default HomePage;
