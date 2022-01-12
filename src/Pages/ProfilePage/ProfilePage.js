@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react'
 import useRequestData from '../../Hooks/useRequestData'
 import { BASE_URL } from '../../Constants/URL'
@@ -5,6 +6,10 @@ import { goToEditAdress, goToEditProfile } from '../../Routes/Coordinator'
 import { useHistory } from 'react-router-dom'
 import { EditProfile } from '../../Services/Access'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
+
+import React from 'react'
+import Menu from '../../Components/Menu/Menu'
+
 
 const ProfilePage = () => {
     useProtectedPage();
@@ -15,6 +20,7 @@ const ProfilePage = () => {
 
     return (
         <div>
+
             <h1>Meu Perfil</h1>
         {perfil.user ? <div>
             <div id={"personalData"}>
@@ -29,6 +35,10 @@ const ProfilePage = () => {
                 </div>
             </div>
         </div> : <div>Loading..</div>}  
+
+        <Menu />
+            <h1>Profile</h1>
+
             
         <h3> Histórico de pedidos</h3>
         <hr></hr>
