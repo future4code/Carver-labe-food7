@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import useForm from "../../Hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { ButtonLoginContainer, LoginContainer,TexfieldLogin } from "./styled";
+import { primaryColor } from "../../Constants/colors";
 
 const SignUpForm = () => {
   const { form, handleInputOnChange } = useForm({ email: "", password: "" });
@@ -15,8 +17,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div>
+    <LoginContainer>
+     
       <form onSubmit={onSubmitLogin}>
+        <TexfieldLogin>
         <TextField
           name={"email"}
           value={form.email}
@@ -28,6 +32,8 @@ const SignUpForm = () => {
           margin={"dense"}
           required
         />
+       </TexfieldLogin>
+       <TexfieldLogin>
         <TextField
           name={"password"}
           value={form.password}
@@ -39,11 +45,15 @@ const SignUpForm = () => {
           margin={"dense"}
           required
         />
+        </TexfieldLogin>
+       <ButtonLoginContainer>
         <Button fullWidth variant="contained" type="submit">
-          <p>Criar</p>
+          <p>Entrar</p>
         </Button>
+        </ButtonLoginContainer>
+       
       </form>
-    </div>
+    </LoginContainer>
   );
 };
 
