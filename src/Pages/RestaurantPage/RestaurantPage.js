@@ -2,33 +2,37 @@ import React from "react";
 import { BASE_URL } from "../../Constants/URL";
 import useRequestData from "../../Hooks/useRequestData";
 import { useParams } from "react-router-dom";
+import Menu from "./RestaurantMenu";
 
 const RestaurantPage = () => {
   const params = useParams();
-  const restaurante = useRequestData(
-    {},
-    `${BASE_URL}/restaurants/${params.id}`
-  );
+  const restaurantes = useRequestData([], `${BASE_URL}/restaurants`);
 
-  const listaProdutos =
-    restaurante.restaurant &&
-    restaurante.restaurant.products &&
-    restaurante.restaurant.products.map((produto) => {
-        return (
-            <div>
-                <img src={produto.photoUrl}  alt="ProductImage" />
-                <p>{produto.name}</p>
-                <p>{produto.description}</p>
-                <p>R$ {produto.price}</p>
-            </div>
-            
-        )
+  console.log("restaurantes", restaurantes);
+
+  const renderRestaurant =
+    restaurantes.restaurants &&
+    restaurantes.restaurants.map((restaurante) => {
+      let cardRestaurant;
+      if (restaurante.id === params.id) {
+        cardRestaurant = (
+          <div key={restaurante.id}>
+            <img src={restaurante.logoUrl} alt={restaurante.name} />
+            <p>{restaurante.name}</p>
+            <p>{restaurante.category}</p>
+            <p>{restaurante.deliveryTime} min</p>
+            <p>Frete R${restaurante.shipping}</p>
+            <p>{restaurante.address}</p>
+          </div>
+        );
+      }
+      return cardRestaurant;
     });
 
   return (
     <div>
-      <h1>Restaurants</h1>
-      {listaProdutos}
+      {renderRestaurant}
+      <Menu />
     </div>
   );
 };
