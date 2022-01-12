@@ -8,7 +8,7 @@ const CardRestaurante = (props) => {
   return (
     <div>
       <div onClick={() => goToRestaurant(history, props.id)}>
-        <img src={props.src} alt={props.name} />
+        <img width="200" src={props.src} alt={props.name} />
         <p>{props.name}</p>
       </div>
       <p>{props.deliveryTime} min</p>
