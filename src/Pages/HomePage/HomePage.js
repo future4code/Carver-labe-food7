@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CardRestaurante from '../../Components/CardRestaurante'
+import Menu from '../../Components/Menu/Menu'
 import { BASE_URL } from '../../Constants/URL'
 import useRequestData from '../../Hooks/useRequestData'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
@@ -45,6 +46,7 @@ const HomePage = () => {
     return (
         <FeedContainer>
             <TextMenu>Rapp4</TextMenu>
+            <Menu />
             <label>
             <TextField
                         name={"filtroRestaurante"}
@@ -59,9 +61,9 @@ const HomePage = () => {
                     />
             </label>
             <p>
-            <strong onClick={()=>handleTipe("Hamburguer")}>Hamburguer   </strong>
-            <strong onClick={()=>handleTipe("Asiática")} >Asiática   </strong>
-            <strong onClick={()=>handleTipe("Massas")} >Massas   </strong>
+            <strong onClick={()=>handleTipe("Hamburguer")}>Hamburguer</strong>
+            <strong onClick={()=>handleTipe("Asiática")} >Asiática</strong>
+            <strong onClick={()=>handleTipe("Árabe")} >Árabe</strong>
             <strong onClick={()=>handleTipe("Saudável")} >Saudável</strong>
             <strong onClick={()=>handleTipe("Italiana")} >Italiana</strong>
             <strong onClick={()=>handleTipe("Sorvetes")} >Sorvetes</strong>
