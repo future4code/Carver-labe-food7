@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-
 import {primaryColor, neutralColor} from "./colors"
 
 const theme = createTheme({
@@ -15,4 +14,3 @@ const theme = createTheme({
 })
 
 export default theme 
-
