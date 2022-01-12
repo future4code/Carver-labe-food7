@@ -5,7 +5,7 @@ import useRequestData from '../../Hooks/useRequestData'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 
 const HomePage = () => {
-    useProtectedPage()
+    useProtectedPage();
 
     const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
     console.log("restaurantes", restaurantes)
@@ -13,6 +13,7 @@ const HomePage = () => {
     const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants.map((restaurante)=>{
         return <div key={restaurante.id}>
             <CardRestaurante
+            id={restaurante.id}
             src={restaurante.logoUrl}
             name={restaurante.name}
             deliveryTime={restaurante.deliveryTime}
@@ -23,7 +24,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>HOME</h1>
+            <h1>RESTAURANTES</h1>
             {renderRestaurantes}
         </div>
     )

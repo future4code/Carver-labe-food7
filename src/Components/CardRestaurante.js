@@ -1,16 +1,20 @@
-import React from 'react'
+import React from "react";
+import { useHistory } from "react-router-dom";
+import { goToRestaurant } from "../Routes/Coordinator";
 
 const CardRestaurante = (props) => {
-   
-    return (
-        <div onClick={props.onClick}>
-            <h1>Restaurantes</h1>
-            <img src={props.src}/>
-            <p>{props.name}</p>
-            <p>{props.deliveryTime} min</p>
-            <p>Frete R${props.shipping}</p>
-        </div>
-    )
-}
+  const history = useHistory();
 
-export default CardRestaurante
+  return (
+    <div>
+      <div onClick={() => goToRestaurant(history, props.id)}>
+        <img src={props.src} alt={props.name} />
+        <p>{props.name}</p>
+      </div>
+      <p>{props.deliveryTime} min</p>
+      <p>Frete R${props.shipping}</p>
+    </div>
+  );
+};
+
+export default CardRestaurante;
