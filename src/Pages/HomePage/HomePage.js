@@ -9,6 +9,18 @@ const HomePage = () => {
 
     const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
     console.log("restaurantes", restaurantes)
+
+    const filterRestaurants = () => {
+        if(restaurants.category === restaurante.category){
+            return renderRestaurantes
+        }
+    }
+
+    const botaoNavegacao = restaurantes.restaurants && restaurantes.restaurants.map((restaurante)=>{
+        return <div key={restaurante.id}>
+            <button /* onClick={} */>{restaurante.category}</button>
+        </div>
+    })
     
     const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants.map((restaurante)=>{
         return <div key={restaurante.id}>
@@ -24,6 +36,7 @@ const HomePage = () => {
     return (
         <div>
             <h1>HOME</h1>
+            {botaoNavegacao}
             {renderRestaurantes}
         </div>
     )
