@@ -11,8 +11,6 @@ const HomePage = () => {
 
     const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
 
-    console.log("restaurantes", restaurantes)
-
     const {form, handleInputOnChange} = useForm({filtroRestaurante:"" })
     const [filtroTipo, setFiltroTipo] = useState("")
 
@@ -25,7 +23,6 @@ const HomePage = () => {
         return (
           restaurante.name.toLowerCase().includes(form.filtroRestaurante.toLowerCase()) && 
           restaurante.category.includes(filtroTipo)
-       
         );
       })
       .map((restaurante)=>{
