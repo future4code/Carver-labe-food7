@@ -9,7 +9,7 @@ import TextField from "@mui/material/TextField";
 import { FeedContainer, TextMenu } from "./styled";
 
 const HomePage = () => {
-    useProtectedPage();
+  useProtectedPage();
 
   const restaurantes = useRequestData([], `${BASE_URL}/restaurants`);
 
@@ -21,9 +21,8 @@ const HomePage = () => {
     setFiltroTipo(value);
   };
 
-  const renderRestaurantes =
-    restaurantes.restaurants &&
-    restaurantes.restaurants
+
+  const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
       .filter((restaurante) => {
         return (
           restaurante.name
@@ -46,74 +45,39 @@ const HomePage = () => {
         );
       });
 
-
-    return (
-        <div>
-            <h1>HOME</h1>
-
-            <h1>RESTAURANTES</h1>
-            <label>
+      return (
+        <FeedContainer>
+          <TextMenu>Rapp4</TextMenu>
+          <Menu />
+          <label>
             <TextField
-                        name={"filtroRestaurante"}
-                        value={form.filtroRestaurante}
-                        onChange={handleInputOnChange}
-                        label={"Restaurante"}
-                        type={"text"}
-                        variant={"outlined"}
-                        fullWidth
-                        margin={"dense"}
-                        required
-                    />
-            </label>
-            <p>
-            <strong onClick={()=>handleTipe("Hamburguer")}>Hamburguer   </strong>
-            <strong onClick={()=>handleTipe("Asiática")} >Asiática   </strong>
-            <strong onClick={()=>handleTipe("Massas")} >Massas   </strong>
-            <strong onClick={()=>handleTipe("Saudável")} >Saudável</strong>
-            <strong onClick={()=>handleTipe("Italiana")} >Italiana</strong>
-            <strong onClick={()=>handleTipe("Sorvetes")} >Sorvetes</strong>
-            <strong onClick={()=>handleTipe("Carnes")} >Carnes</strong>
-            <strong onClick={()=>handleTipe("Baiana")} >Baiana</strong>
-            <strong onClick={()=>handleTipe("Petiscos")} >Petiscos</strong>
-            <strong onClick={()=>handleTipe("Mexicana")} >Mexicana</strong>
-            </p>
-            {renderRestaurantes}
-        </div>
-    )
+              name={"filtroRestaurante"}
+              value={form.filtroRestaurante}
+              onChange={handleInputOnChange}
+              label={"Restaurante"}
+              type={"text"}
+              variant={"outlined"}
+              fullWidth
+              margin={"dense"}
+            />
+          </label>
+          <p>
+            <strong onClick={() => handleTipe("Hamburguer")}>Hamburguer</strong>
+            <strong onClick={() => handleTipe("Asiática")}>Asiática</strong>
+            <strong onClick={() => handleTipe("Árabe")}>Árabe</strong>
+            <strong onClick={() => handleTipe("Saudável")}>Saudável</strong>
+            <strong onClick={() => handleTipe("Italiana")}>Italiana</strong>
+            <strong onClick={() => handleTipe("Sorvetes")}>Sorvetes</strong>
+            <strong onClick={() => handleTipe("Carnes")}>Carnes</strong>
+            <strong onClick={() => handleTipe("Baiana")}>Baiana</strong>
+            <strong onClick={() => handleTipe("Petiscos")}>Petiscos</strong>
+            <strong onClick={() => handleTipe("Mexicana")}>Mexicana</strong>
+          </p>
+          {renderRestaurantes}
+        </FeedContainer>
+      );
+
+   
 }
-
-  return (
-    <FeedContainer>
-      <TextMenu>Rapp4</TextMenu>
-      <Menu />
-      <label>
-        <TextField
-          name={"filtroRestaurante"}
-          value={form.filtroRestaurante}
-          onChange={handleInputOnChange}
-          label={"Restaurante"}
-          type={"text"}
-          variant={"outlined"}
-          fullWidth
-          margin={"dense"}
-        />
-      </label>
-      <p>
-        <strong onClick={() => handleTipe("Hamburguer")}>Hamburguer</strong>
-        <strong onClick={() => handleTipe("Asiática")}>Asiática</strong>
-        <strong onClick={() => handleTipe("Árabe")}>Árabe</strong>
-        <strong onClick={() => handleTipe("Saudável")}>Saudável</strong>
-        <strong onClick={() => handleTipe("Italiana")}>Italiana</strong>
-        <strong onClick={() => handleTipe("Sorvetes")}>Sorvetes</strong>
-        <strong onClick={() => handleTipe("Carnes")}>Carnes</strong>
-        <strong onClick={() => handleTipe("Baiana")}>Baiana</strong>
-        <strong onClick={() => handleTipe("Petiscos")}>Petiscos</strong>
-        <strong onClick={() => handleTipe("Mexicana")}>Mexicana</strong>
-      </p>
-      {renderRestaurantes}
-    </FeedContainer>
-  );
-};
-
 
 export default HomePage;
