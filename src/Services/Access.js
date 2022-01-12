@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../Constants/URL";
-import { goToHome, goToSignAddress, goToSignUp } from "../Routes/Coordinator";
+import { goToHome, goToProfile, goToSignAddress, goToSignUp } from "../Routes/Coordinator";
 
 export const Login = (body, history) => {
   axios
@@ -56,3 +56,23 @@ export const SignAddress = (body, clear, history) => {
       alert("Ocorreu um erro! tente novamente!");
     });
 };
+
+export const EditProfile = (body, clear, history) => {
+  axios
+  .put(`${BASE_URL}/profile`, body, {
+    headers: {
+      auth: localStorage.getItem("token"),
+    },
+  })
+  .then((res) => {
+    console.log("certo do edit profile",res.data)
+    console.log("novo token", res.data.token)
+    alert("Perfil atualizado com sucesso!");
+    clear();
+    // goToProfile(history);
+  })
+  .catch((err) => {
+    console.log(err.data);
+    alert("Ocorreu um erro! tente novamente!");
+  });
+}
