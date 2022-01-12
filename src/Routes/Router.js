@@ -9,7 +9,9 @@ import ProfilePage from "../Pages/ProfilePage/ProfilePage"
 import RestaurantPage from "../Pages/RestaurantPage/RestaurantPage"
 import SearchPage from "../Pages/SearchPage/SearchPage"
 import SignUpPage from "../Pages/SignUpPage/SignUpPage"
+
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
+import SignAddressPage from "../Pages/SignAddressPage/SignAddressPage";
 
 const Router = () => {
     return(
@@ -49,6 +51,10 @@ const Router = () => {
 
                 <Route exact path="/cadastrar">
                     <SignUpPage/>
+                </Route>
+
+                <Route exact path="/cadastrarendereco">
+                    <SignAddressPage/>
                 </Route>
 
                 <Route>

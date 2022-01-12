@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import { ButtonLoginContainer, LoginContainer,TexfieldLogin } from "./styled";
 import { primaryColor } from "../../Constants/colors";
 
-const SignUpForm = () => {
+const LoginForm = () => {
   const { form, handleInputOnChange } = useForm({ email: "", password: "" });
   const history = useHistory();
 
@@ -57,4 +57,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default LoginForm;

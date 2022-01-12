@@ -5,7 +5,7 @@ import {TextSingUp, LogoImage, SingUpContainer} from '../SignUpPage/styled'
 
 
 const SignUpPage = () => {
-    /* useUnprotectedPage() */
+    useUnprotectedPage()
     
     return (
         <div>
@@ -15,7 +15,7 @@ const SignUpPage = () => {
             
             <SignUpForm/>
         </div>
-    )
+    ) 
 }
 
 export default SignUpPage
