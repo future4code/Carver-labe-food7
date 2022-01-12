@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { SingUpContainer, TexfieldContainer } from "../SignUpPage/styled";
 
 
+
 const SignUpForm = () => {
     const {form, handleInputOnChange, clear} = useForm({name:"", email:"", cpf:"", password:"", password2:""})
     const history = useHistory()
@@ -90,7 +91,7 @@ const SignUpForm = () => {
                     />
                     </TexfieldContainer>
                 
-                    <Button fullWidth variant="contained" type="submit">
+                    <Button fullWidth variant="contained" type="submit" color="primary">
                      <p>Cadastrar</p>
                      </Button>      
                            

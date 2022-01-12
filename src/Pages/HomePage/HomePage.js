@@ -6,6 +6,8 @@ import useRequestData from '../../Hooks/useRequestData'
 import { useProtectedPage } from '../../Hooks/useProtectedPage'
 import useForm from '../../Hooks/useForm'
 import TextField from '@mui/material/TextField';
+import {FeedContainer, TextMenu} from './styled' 
+
 
 
 
@@ -42,9 +44,9 @@ const HomePage = () => {
     })
 
     return (
-        <div>
-        <Menu />
-            <h1>RESTAURANTES</h1>
+        <FeedContainer>
+            <TextMenu>Rapp4</TextMenu>
+            <Menu />
             <label>
             <TextField
                         name={"filtroRestaurante"}
@@ -71,7 +73,7 @@ const HomePage = () => {
             <strong onClick={()=>handleTipe("Mexicana")} >Mexicana</strong>
             </p>
             {renderRestaurantes}
-        </div>
+        </FeedContainer>
     )
 }
 
