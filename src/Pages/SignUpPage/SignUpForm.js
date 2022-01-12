@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import useForm from '../../Hooks/useForm'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { ButtonContainer, SingUpContainer, TexfieldContainer } from "../SignUpPage/styled";
+
 
 const SignUpForm = () => {
     const {form, handleInputOnChange, clear} = useForm({name:"", email:"", cpf:"", password:"", password2:""})
@@ -17,43 +19,51 @@ const SignUpForm = () => {
             alert("Sua senha não é igual a confirmação")
         }
     }
-
+   
     return (
-            <div>
+            <SingUpContainer>
                 <form onSubmit={onSubmitForm}>
+                    <TexfieldContainer>
                     <TextField
                         name={"name"}
                         value={form.username}
                         onChange={handleInputOnChange}
-                        label={"Nome e Sobrenome"}
+                        label={"Nome"}                       
                         type={"name"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
                         required
                     />
+                    </TexfieldContainer>
+                    <TexfieldContainer>
                     <TextField
+                        
                         name={"email"}
                         value={form.email}
                         onChange={handleInputOnChange}
-                        label={"E-mail"}
+                        label={"E-mail"}                        
                         type={"email"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
                         required
                     />
+                    </TexfieldContainer>
+                    <TexfieldContainer>
                     <TextField
                         name={"cpf"}
                         value={form.cpf}
                         onChange={handleInputOnChange}
-                        label={"CPF: 000.000.000-00"}
+                        label={"CPF:000.000.000-00"}
                         type={"cpf"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
                         required
                     />
+                    </TexfieldContainer>
+                    <TexfieldContainer>
                     <TextField
                         name={"password"}
                         value={form.password}
@@ -65,6 +75,8 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
+                    </TexfieldContainer>
+                    <TexfieldContainer>
                     <TextField
                         name={"password2"}
                         value={form.password2}
@@ -76,16 +88,21 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
+                    </TexfieldContainer>
+                    <ButtonContainer>
                     <Button 
                     fullWidth 
                     variant="contained"
                     type="submit"
+                    color="primary"
                     >
                     <p>Criar</p>
-                    </Button>
+                    </Button>        
+                    </ButtonContainer>            
                 </form>
-            </div>
+            </SingUpContainer>
     )
+    
 }
 
-export default SignUpForm; 
+export default SignUpForm;
