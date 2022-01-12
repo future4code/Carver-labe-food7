@@ -7,7 +7,7 @@ import useForm from '../../Hooks/useForm'
 import TextField from '@mui/material/TextField';
 
 const HomePage = () => {
-    useProtectedPage()
+    useProtectedPage();
 
     const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
     
@@ -29,6 +29,7 @@ const HomePage = () => {
       .map((restaurante)=>{
         return <div key={restaurante.id}>
             <CardRestaurante
+            id={restaurante.id}
             src={restaurante.logoUrl}
             name={restaurante.name}
             deliveryTime={restaurante.deliveryTime}
@@ -39,7 +40,7 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>HOME</h1>
+            <h1>RESTAURANTES</h1>
             <label>
             <TextField
                         name={"filtroRestaurante"}
@@ -64,7 +65,6 @@ const HomePage = () => {
             <strong onClick={()=>handleTipe("Baiana")} >Baiana</strong>
             <strong onClick={()=>handleTipe("Petiscos")} >Petiscos</strong>
             <strong onClick={()=>handleTipe("Mexicana")} >Mexicana</strong>
-            
             </p>
             {renderRestaurantes}
         </div>
