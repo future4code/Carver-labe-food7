@@ -1,9 +1,7 @@
-// import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import React from 'react';
 import Router from './Routes/Router';
-// import theme from './Constants/theme';
-
-
+import theme from './Constants/theme';
 
 function App() {
   return (

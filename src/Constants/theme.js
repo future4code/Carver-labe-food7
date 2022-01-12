@@ -1,18 +1,16 @@
-// import { createMuiTheme } from "@material-ui/core";
+import { createTheme } from '@mui/material/styles';
+import {primaryColor, neutralColor} from "./colors"
 
-// import {primaryColor, neutralColor} from "./colors"
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: primaryColor,
+      contrastText: "black"
+    },
+    text: {
+        primary: neutralColor
+    }
+  }
+})
 
-// const theme = createMuiTheme({
-//   palette: {
-//     primary: {
-//       main: primaryColor,
-//       contrastText: "black"
-//     },
-//     text: {
-//         primary: neutralColor
-//     }
-//   }
-// })
-
-// export default theme 
-
+export default theme 
