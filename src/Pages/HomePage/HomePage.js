@@ -75,9 +75,7 @@ const HomePage = () => {
           {renderRestaurantes}
           <Menu />
         </FeedContainer>
-      );
-
-   
+    );
 }
 
 export default HomePage;
