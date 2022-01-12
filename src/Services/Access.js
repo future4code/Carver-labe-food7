@@ -57,7 +57,7 @@ export const SignAddress = (body, clear, history) => {
     });
 };
 
-export const EditProfile = (body, clear, history) => {
+export const EditProfile = (body, history) => {
   axios
   .put(`${BASE_URL}/profile`, body, {
     headers: {
@@ -65,14 +65,11 @@ export const EditProfile = (body, clear, history) => {
     },
   })
   .then((res) => {
-    console.log("certo do edit profile",res.data)
-    console.log("novo token", res.data.token)
+    console.log(res.data.user)
     alert("Perfil atualizado com sucesso!");
-    clear();
-    // goToProfile(history);
+    goToProfile(history);
   })
   .catch((err) => {
-    console.log(err.data);
-    alert("Ocorreu um erro! tente novamente!");
+    console.log(err.message);
   });
 }

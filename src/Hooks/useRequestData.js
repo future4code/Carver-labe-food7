@@ -12,12 +12,9 @@ const useRequestData = (initialData, url) => {
     })
     .then((response) => {
       setData(response.data)
-
-      console.log("token atual",localStorage.getItem("token"))
     })
     .catch((error) => {
       console.log(error)
-      alert('Ocorreu um erro, tente novamente')
     }) 
   }, [url])
 

@@ -10,7 +10,7 @@ import { primaryColor } from "../../Constants/colors";
 const EditProfileForm = () => {
   const { form, handleInputOnChange} = useForm({name: "", email: "", cpf:"" });
   const history = useHistory();
-  console.log("token atual", localStorage.getItem("token"))
+
   const onSubmitAddress = (event) => {
     event.preventDefault();
     EditProfile(form, history);
