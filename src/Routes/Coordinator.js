@@ -2,6 +2,10 @@ export const goToHome = (history) => {
     history.push("/")
 }
 
+export const goToCart = (history) => {
+    history.push("/carrinho")
+}
+
 export const goToLogin = (history) => {
     history.push("/login")
 }
