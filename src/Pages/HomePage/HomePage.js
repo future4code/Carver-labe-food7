@@ -12,41 +12,41 @@ import {HomePageContainer,
         TextFiltroHome, 
         StyledToolbar} from './styled' 
 
-
-
-
-
 const HomePage = () => {
-    useProtectedPage();
+  useProtectedPage();
 
-    const restaurantes = useRequestData([], `${BASE_URL}/restaurants`)
-    
-    const {form, handleInputOnChange} = useForm({filtroRestaurante:"" })
-    const [filtroTipo, setFiltroTipo] = useState("")
+  const restaurantes = useRequestData([], `${BASE_URL}/restaurants`);
 
-    const handleTipe=(value)=>{
-        setFiltroTipo(value)
-    }
 
-    const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
-    .filter((restaurante) => {
+  const { form, handleInputOnChange } = useForm({ filtroRestaurante: "" });
+  const [filtroTipo, setFiltroTipo] = useState("");
+
+  const handleTipe = (value) => {
+    setFiltroTipo(value);
+  };
+
+  const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
+      .filter((restaurante) => {
         return (
-          restaurante.name.toLowerCase().includes(form.filtroRestaurante.toLowerCase()) && 
+          restaurante.name
+            .toLowerCase()
+            .includes(form.filtroRestaurante.toLowerCase()) &&
           restaurante.category.includes(filtroTipo)
-       
         );
       })
-      .map((restaurante)=>{
-        return <div key={restaurante.id}>
+      .map((restaurante) => {
+        return (
+          <div key={restaurante.id}>
             <CardRestaurante
-            id={restaurante.id}
-            src={restaurante.logoUrl}
-            name={restaurante.name}
-            deliveryTime={restaurante.deliveryTime}
-            shipping={restaurante.shipping}
+              id={restaurante.id}
+              src={restaurante.logoUrl}
+              name={restaurante.name}
+              deliveryTime={restaurante.deliveryTime}
+              shipping={restaurante.shipping}
             />
-        </div>
-    })
+          </div>
+        );
+      });
 
     return (
         
@@ -93,9 +93,7 @@ const HomePage = () => {
           
             <Menu />
         </HomePageContainer>
-        
-        
     )
 }
 
-export default HomePage 
+export default HomePage;
