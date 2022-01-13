@@ -1,75 +1,87 @@
-import React, { useContext } from "react";
-import styled from 'styled-components'
+import FormControl from "@mui/material/FormControl";
+import {InputLabel} from "@mui/material";
+import React, {useContext} from "react";
 import GlobalContext from "../Global/GlobalContext";
+import { Button, Select } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem"
+import styled from 'styled-components';
+import Modal from '@mui/material/Modal';
 
-const Popup = styled.div`
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba (0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+export const BodyModal = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: 206px;
+  max-width: 328px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+`;
+
+export const SModal = styled(Modal)`
+display: flex;
+align-items: center;
+outline: none;
 `
 
-const PopupInner = styled.div`
-    position: relative;
-    padding: 32px;
-    width: 100%;
-    max-width: 640px;
-    background-color: blue;
-`
-
-const CloseButton = styled.button`
-    position: absolute;
-    top: 16px;
-    right: 16px;
-
-`
-
-function PopUp(props) {
-    const aparecePopUP = ({open, handleClose, quantity, setQuantity, addItemToCart, product, restaurantId, data}) => {
-        const handleChange=(event)=>{
-          setQuantity(event.target.value)
-        }
-    }
+const AparecePopUP = ({ abrir, fecharPopUp, quantidade, setQuantidade, adicionarPedido, produto, idRestaurante, restaurante }) => {
+    
+    const handleChange = (event) => {
+        setQuantidade(event.target.value)
+    }   
 
     const {restauranteAtual, setRestauranteAtual, carrinho, setCarrinho} = useContext(GlobalContext)
 
     const definirPedido = () => {
-        if(restauranteAtual.id === '' || restauranteAtual.id === restauranteId){
-            if(quantity > 0){
-                adicionarPedido(product.id, quantity)
-                handleClose()
+        if (restauranteAtual.id === '' || restauranteAtual.id === idRestaurante) {
+            if (quantidade > 0) {
+                adicionarPedido(produto.id, quantidade)
+                fecharPopUp()
                 setRestauranteAtual({
-                    id: restaurantId,
-                    deliveryTime: data.deliveryTime,
-                    shipping: data.shipping,
-                    address: data.address,
-                    name: data.name
+                    id: idRestaurante,
+                    deliveryTime: restaurante.deliveryTime,
+                    shipping: restaurante.shipping,
+                    address: restaurante.address,
+                    name: restaurante.name
                 })
                 const novoCarrinho = carrinho
-                novoCarrinho.push(product)
+                novoCarrinho.push(produto)
                 setCarrinho(novoCarrinho)
-                setQuantity('')
+                setQuantidade('')
             }
         }
     }
 
-    const popUp = (
-        <p></p>
+    const popUp = ( 
+        <BodyModal>
+            <p> Selecione a quantidade desejada! </p> 
+            <FormControl fullWidth variant = 'outlined' color = {'secondary'}>
+                <InputLabel > Quantidade Desejada </InputLabel> 
+                <Select value = {quantidade} onChange = {handleChange} label = 'Quantidade desejada'>
+                    <MenuItem value = '' disabled style = {{display: 'none'}}> </MenuItem> 
+                    <MenuItem value = {1}> 1 </MenuItem> 
+                    <MenuItem value = {2}> 2 </MenuItem> 
+                    <MenuItem value = {3}> 3 </MenuItem> 
+                    <MenuItem value = {4}> 4 </MenuItem> 
+                </Select> 
+            </FormControl> 
+            <Button color = {'primary'} onClick = {definirPedido}>
+            Adicionar ao carrinho 
+            </Button> 
+        </BodyModal>
     )
 
 
-    return(props.trigger) ? (
-        <Popup>
-            <PopupInner>
-                {/* <CloseButton onClick={()=>props.setTrigger(false)}>X</CloseButton> */}
-                {props.children}
-            </PopupInner>
-        </Popup>
-    ) : "";
+    return ( 
+        <div>
+            <SModal open={abrir} onClose={fecharPopUp}> 
+                {popUp} 
+            </SModal>
+        </div>
+    );
 }
-export default PopUp
+
+export default AparecePopUP;

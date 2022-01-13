@@ -6,9 +6,9 @@ import { useProtectedPage } from "../../Hooks/useProtectedPage";
 import { useHistory } from "react-router-dom";
 import { goToHome } from "../../Routes/Coordinator";
 import GlobalContext from '../../Global/GlobalContext';
-import PopUp from "../../Components/PopUp";
+import AparecePopUp from "../../Components/PopUp";
+import CardProduto from "../../Components/CardProduto/CardProduto";
 import Menu from "../../Components/Menu/Menu";
-import GlobalState from "../../Global/GlobalState";
 import { SettingsPowerSharp } from "@mui/icons-material";
 
 const RestaurantPage = () => {
@@ -21,11 +21,11 @@ const RestaurantPage = () => {
   const [produto, setProduto] = useState(false)
 
   const abrirPopUp = () => {
-    setOpen(true)
+    setAbrir(true)
   }
 
   const fecharPopUp = () => {
-    setOpen(false)
+    setAbrir(false)
   }
 
   const [quantidade, setQuantidade] = useState("")
@@ -43,7 +43,9 @@ const RestaurantPage = () => {
       return categorias.indexOf(item) === index;
     });
 
-  
+  const abrirSelect = () => {
+
+  }
 
   const produtoPorCategoria = (categoria, array) => {
     const filtro = array.filter((item) => item.category === categoria);
@@ -51,15 +53,25 @@ const RestaurantPage = () => {
     const listaProdutos = filtro.map((produto) => {
       const produtoId = pedido.products.filter((product) => product.id === produto.id);
       return (
-        <div>
-          <img width="200" src={produto.photoUrl} alt={produto.name} />
-          <p>{produto.name}</p>
-          <p>{produto.description}</p>
-          <p>R$ {produto.price}</p>
-          {produtoId.length === 0 ? (<button onClick={()=>setButtonPopup(produto.id, true)}>Adicionar</button>) : (
-            <button onClick={() => {removerPedido(produto.id)}}>Remover</button>
-          )}
-        </div>
+        <CardProduto
+                    key={produto.id}
+                    imagem={produto.photoUrl}
+                    nome={produto.name}
+                    descricao={produto.description}
+                    preco={produto.price}
+                    id={produto.id}
+                    selecionarPedido={() => {
+                      setProduto({
+                        id: produto.id,
+                        imagem: produto.photoUrl,
+                        nome: produto.name,
+                        descricao: produto.description,
+                        preco: produto.price,
+                      });
+                      abrirPopUp();
+                    }}
+                    removerPedido={removerPedido}
+                  />
       );
     });
 
@@ -91,34 +103,16 @@ const RestaurantPage = () => {
               idRestaurante={restaurante.restaurant.id}
               restaurante={restaurante.restaurant}
           />
-        
         <div>
           <img src={restaurante.restaurant.logoUrl} alt={restaurante.restaurant.name}/>
           <p>{restaurante.restaurant.name}</p>
           <p>{restaurante.restaurant.category}</p>
           <p>{restaurante.restaurant.deliveryTime} min</p>
-          <p>Frete R${restaurante.restaurant.shipping}</p>
+          <p>Frete R$ {restaurante.restaurant.shipping}</p>
           <p>{restaurante.restaurant.address}</p>
         </div>
        </> 
       )}
-
-      <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <h3>Selecione a quantidade desejada</h3>
-          <select>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-            <option value={7}>7</option>
-            <option value={8}>8</option>
-            <option value={9}>9</option>
-            <option value={10}>10</option>
-          </select>
-          <button onClick={()=> {adicionarPedido(restaurante.restaurant.products.id)}}>Adicionar ao carrinho</button>
-      </PopUp>
 
       {filtroCategorias}
       <Menu/> 
