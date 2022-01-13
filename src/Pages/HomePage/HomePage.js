@@ -25,11 +25,12 @@ const HomePage = () => {
   const [filtroTipo, setFiltroTipo] = useState("");
 
   const handleTipe = (value) => {
-    if(value === filtroTipo){
-      setFiltroTipo("")
-    }else{
-      setFiltroTipo(value)
-    }
+
+   if(value === filtroTipo){
+     setFiltroTipo("")
+   }else{
+     setFiltroTipo(value)
+   }
   };
 
   const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
