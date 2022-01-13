@@ -11,9 +11,12 @@ import {HomePageContainer,
         FiltroHomeContainer, 
         TextFiltroHome, 
         StyledToolbar} from './styled' 
+import { goToSearch } from '../../Routes/Coordinator'
+import { useHistory } from 'react-router-dom'
 
 const HomePage = () => {
   useProtectedPage();
+  const history = useHistory()
 
   const restaurantes = useRequestData([], `${BASE_URL}/restaurants`);
 
@@ -22,6 +25,7 @@ const HomePage = () => {
   const [filtroTipo, setFiltroTipo] = useState("");
 
   const handleTipe = (value) => {
+
    if(value === filtroTipo){
      setFiltroTipo("")
    }else{
@@ -30,52 +34,49 @@ const HomePage = () => {
   };
 
   const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants
-      .filter((restaurante) => {
-        return (
-          restaurante.name
-            .toLowerCase()
-            .includes(form.filtroRestaurante.toLowerCase()) &&
+    .filter((restaurante) => {
+      return (
+        restaurante.name
+        .toLowerCase()
+        .includes(form.filtroRestaurante.toLowerCase()) &&
           restaurante.category.includes(filtroTipo)
-        );
-      })
-      .map((restaurante) => {
-        return (
-          <div key={restaurante.id}>
-            <CardRestaurante
-              id={restaurante.id}
-              src={restaurante.logoUrl}
-              name={restaurante.name}
-              deliveryTime={restaurante.deliveryTime}
-              shipping={restaurante.shipping}
-            />
-          </div>
-        );
-      });
+      );
+  })
+  .map((restaurante) => {
+  return (
+    <div key={restaurante.id}>
+      <CardRestaurante
+        id={restaurante.id}
+        src={restaurante.logoUrl}
+        name={restaurante.name}
+        deliveryTime={restaurante.deliveryTime}
+        shipping={restaurante.shipping}
+      />
+    </div>
+    );
+  });
 
     return (
-        
-        
-           
-
         <HomePageContainer>
             
-            <StyledToolbar>             
+            {/* <StyledToolbar>   */}           
             <TextMenu>Rapp4</TextMenu>
-            </StyledToolbar>
+            {/* </StyledToolbar> */}
            
-                 <label>         
+            <label>         
             <TextField
-                        name={"filtroRestaurante"}
-                        value={form.filtroRestaurante}
-                        onChange={handleInputOnChange}
-                        label={"Restaurante"}
-                        type={"text"}
-                        variant={"outlined"}
-                        fullWidth
-                        margin={"dense"}
-                        required
-                    />
-                 </label>      
+              name={"filtroRestaurante"}
+              value={form.filtroRestaurante}
+              onChange={handleInputOnChange}
+              onClick={()=>goToSearch(history)}
+              label={"Restaurante"}
+              type={"text"}
+              variant={"outlined"}
+              fullWidth
+              margin={"dense"}
+              required
+            />
+            </label>      
             
             <FiltroHomeContainer>
            
