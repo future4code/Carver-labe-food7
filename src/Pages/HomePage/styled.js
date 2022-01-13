@@ -1,5 +1,5 @@
 import styled from "styled-components";
-/* import Toolbar from '@material-ui/core/Toolbar' */
+import Toolbar from '@mui/material/Toolbar'
 
 export const HomePageContainer = styled.div`
 

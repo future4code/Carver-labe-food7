@@ -8,8 +8,10 @@ import { ButtonLoginContainer, LoginContainer, TexfieldLogin } from "./styled";
 import { primaryColor } from "../../Constants/colors";
 import { BASE_URL } from "../../Constants/URL";
 import axios from "axios";
+import { useProtectedPage } from "../../Hooks/useProtectedPage";
 
 const EditProfileForm = () => {
+  useProtectedPage()
   const { form, handleInputOnChange, setForm } = useForm({name: "", email: "", cpf:"" });
   const history = useHistory();
 

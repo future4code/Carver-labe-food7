@@ -26,7 +26,7 @@ export const SignUp = (body, clear, history) => {
     .post(`${BASE_URL}/signup`, body)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Cadastro Realizado com sucesso!");
+      alert("Cadastro realizado com sucesso!");
       clear();
       goToSignAddress(history);
     })
@@ -53,7 +53,7 @@ export const SignAddress = (body, clear, history) => {
     })
     .catch((err) => {
       console.log(err.response.data.message);
-      alert("Ocorreu um erro! tente novamente!");
+      alert("Ocorreu um erro! Tente novamente!");
     });
 };
 
@@ -88,6 +88,16 @@ export const EditAddress = (body, history) => {
     })
     .catch((err) => {
       console.log(err.message);
-      alert("Ocorreu um erro! tente novamente!");
+      alert("Ocorreu um erro! Tente novamente!");
     });
 };
+
+export const placeOrder = (body, id, setData) => {
+  axios.post(`${BASE_URL}/restaurants/${id}/order`, body, {headers: {
+    auth: localStorage.getItem("token")
+  }}).then((res) => {
+    setData(res.data)
+  }).catch((err) => {
+    alert(err.response.data.message)
+  })
+}
