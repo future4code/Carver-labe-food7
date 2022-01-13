@@ -22,7 +22,11 @@ const HomePage = () => {
   const [filtroTipo, setFiltroTipo] = useState("");
 
   const handleTipe = (value) => {
-    setFiltroTipo(value);
+   if(value === filtroTipo){
+     setFiltroTipo("")
+   }else{
+     setFiltroTipo(value)
+   }
   };
 
   const renderRestaurantes = restaurantes.restaurants && restaurantes.restaurants

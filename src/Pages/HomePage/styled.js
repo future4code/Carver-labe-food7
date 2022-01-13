@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Toolbar from '@material-ui/core/Toolbar'
+// import Toolbar from '@material-ui/core/Toolbar'
 
 
 
@@ -55,7 +55,7 @@ export const TextFiltroHome = styled.strong`
 
 `
 
-export const StyledToolbar = styled(Toolbar)`
+export const StyledToolbar = styled.div`
 
   width: 315px;
   height: 74px;
