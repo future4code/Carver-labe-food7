@@ -15,6 +15,24 @@ const GlobalState = (props) => {
         paymentMethod: ""
     })
 
+    const adicionarPedido = (id, quantidade) => {
+        const novoPedido = pedido;
+        novoPedido.products.push({
+            id: id,
+            quantity: quantidade
+        })
+        setPedido(novoPedido)
+    }
+    
+    const removerPedido = (id) => {
+        const pedidoCarrinho = pedido;
+        const encontrarPedido = pedidoCarrinho.products?.filter((produto) => produto.id !== id);
+        setPedido({ products: encontrarPedido })
+        const noCarrinho = carrinho;
+        const filtrarCarrinho = noCarrinho.filter((produto) => produto.id !== id)
+        setCarrinho(filtrarCarrinho)
+    }
+
     return ( 
         < GlobalContext.Provider 
             value = {{
@@ -23,7 +41,9 @@ const GlobalState = (props) => {
                     pedido,
                     setPedido,
                     restauranteAtual,
-                    setRestauranteAtual
+                    setRestauranteAtual,
+                    adicionarPedido,
+                    removerPedido
                 }} 
         > 
         {props.children} 

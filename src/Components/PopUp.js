@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from 'styled-components'
+import GlobalContext from "../Global/GlobalContext";
 
 const Popup = styled.div`
     position: fixed;
@@ -29,10 +30,43 @@ const CloseButton = styled.button`
 `
 
 function PopUp(props) {
+    const aparecePopUP = ({open, handleClose, quantity, setQuantity, addItemToCart, product, restaurantId, data}) => {
+        const handleChange=(event)=>{
+          setQuantity(event.target.value)
+        }
+    }
+
+    const {restauranteAtual, setRestauranteAtual, carrinho, setCarrinho} = useContext(GlobalContext)
+
+    const definirPedido = () => {
+        if(restauranteAtual.id === '' || restauranteAtual.id === restauranteId){
+            if(quantity > 0){
+                adicionarPedido(product.id, quantity)
+                handleClose()
+                setRestauranteAtual({
+                    id: restaurantId,
+                    deliveryTime: data.deliveryTime,
+                    shipping: data.shipping,
+                    address: data.address,
+                    name: data.name
+                })
+                const novoCarrinho = carrinho
+                novoCarrinho.push(product)
+                setCarrinho(novoCarrinho)
+                setQuantity('')
+            }
+        }
+    }
+
+    const popUp = (
+        <p></p>
+    )
+
+
     return(props.trigger) ? (
         <Popup>
             <PopupInner>
-                <CloseButton onClick={()=>props.setTrigger(false)}>X</CloseButton>
+                {/* <CloseButton onClick={()=>props.setTrigger(false)}>X</CloseButton> */}
                 {props.children}
             </PopupInner>
         </Popup>

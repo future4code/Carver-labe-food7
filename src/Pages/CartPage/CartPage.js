@@ -13,9 +13,19 @@ const CartPage = () => {
 
     return (
         <div>
-            <h1>Cart</h1>
+            <div>
+                {pedido.products.length > 0 && pedido.map((produto) => {
+                    return <div>
+                        <p>{produto.name}</p>
+                        <p>{produto.description}</p>
+                        <p>R$ {produto.price}</p>
+                    </div>  
+                    })
+                }
+            </div>
             <Menu />
         </div>
+        
     )
 }
 

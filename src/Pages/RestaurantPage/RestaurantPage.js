@@ -13,29 +13,22 @@ import { SettingsPowerSharp } from "@mui/icons-material";
 
 const RestaurantPage = () => {
   useProtectedPage();
-  const { pedido, setPedido } = useContext(GlobalContext)
+  const { carrinho, setCarrinho, pedido, setPedido, adicionarPedido, removerPedido } = useContext(GlobalContext)
   const params = useParams();
   const restaurante = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`);
   const history = useHistory();
-  const [buttonPopup, setButtonPopup] = useState(false)
+  const [abrir, setAbrir] = useState(false)
+  const [produto, setProduto] = useState(false)
 
-  const adicionarPedido = (id, quantidade) => {
-    const novoPedido = pedido;
-    novoPedido.products.push({
-        id: id,
-        quantity: quantidade
-    })
-    setPedido(novoPedido)
-}
+  const abrirPopUp = () => {
+    setOpen(true)
+  }
 
-// const removerPedido = (id) => {
-//     const pedidoCarrinho = pedido;
-//     const encontrarPedido = pedidoCarrinho.products?.filter((produto) => produto.id !== id);
-//     setPedido({ products: encontrarPedido })
-//     const noCarrinho = carrinho;
-//     const filtrarCarrinho = noCarrinho.filter((produto) => produto.id !== id)
-//     setCarrinho(filtrarCarrinho)
-// }
+  const fecharPopUp = () => {
+    setOpen(false)
+  }
+
+  const [quantidade, setQuantidade] = useState("")
 
   const categorias =
     restaurante.restaurant &&
@@ -63,9 +56,9 @@ const RestaurantPage = () => {
           <p>{produto.name}</p>
           <p>{produto.description}</p>
           <p>R$ {produto.price}</p>
-          {/* {produtoId.length === 0 ? (<button onClick={()=>setButtonPopup(true)}>Adicionar</button>) : (
+          {produtoId.length === 0 ? (<button onClick={()=>setButtonPopup(produto.id, true)}>Adicionar</button>) : (
             <button onClick={() => {removerPedido(produto.id)}}>Remover</button>
-          )} */}
+          )}
         </div>
       );
     });
@@ -86,6 +79,19 @@ const RestaurantPage = () => {
     <div>
       <button onClick={() => goToHome(history)}>Voltar</button>
       {restaurante.restaurant && (
+        <>
+          <AparecePopUp 
+              abrir={abrir}
+              setAbrir={setAbrir}
+              abrirPopUp={abrirPopUp}
+              fecharPopUp={fecharPopUp}
+              quantidade={quantidade}
+              setQuantidade={setQuantidade}
+              produto={produto}
+              idRestaurante={restaurante.restaurant.id}
+              restaurante={restaurante.restaurant}
+          />
+        
         <div>
           <img src={restaurante.restaurant.logoUrl} alt={restaurante.restaurant.name}/>
           <p>{restaurante.restaurant.name}</p>
@@ -94,6 +100,7 @@ const RestaurantPage = () => {
           <p>Frete R${restaurante.restaurant.shipping}</p>
           <p>{restaurante.restaurant.address}</p>
         </div>
+       </> 
       )}
 
       <PopUp trigger={buttonPopup} setTrigger={setButtonPopup}>
@@ -110,7 +117,7 @@ const RestaurantPage = () => {
             <option value={9}>9</option>
             <option value={10}>10</option>
           </select>
-          <button onClick={adicionarPedido}>Adicionar ao carrinho</button>
+          <button onClick={()=> {adicionarPedido(restaurante.restaurant.products.id)}}>Adicionar ao carrinho</button>
       </PopUp>
 
       {filtroCategorias}
