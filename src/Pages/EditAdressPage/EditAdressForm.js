@@ -6,8 +6,10 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios'
 import { BASE_URL } from "../../Constants/URL";
+import { useProtectedPage } from "../../Hooks/useProtectedPage";
 
 const EditAddressForm = () => {
+    useProtectedPage()
     const {form, handleInputOnChange, clear, setForm} = useForm({street:"", number:"", neighbourhood:"", city:"", state:"", complement:""})
     const history = useHistory()
 

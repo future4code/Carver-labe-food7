@@ -4,7 +4,6 @@ import Router from './Routes/Router';
 import theme from './Constants/theme';
 import SplashScreen from './Components/SplashScreem/SplashScreem';
 
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
