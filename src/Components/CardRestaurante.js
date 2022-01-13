@@ -1,19 +1,26 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { goToRestaurant } from "../Routes/Coordinator";
+import {CardContainer, 
+        ImgCard, 
+        RestauranteCardText,
+        TempoEntrega,
+        FretCard} from './styled'
 
 const CardRestaurante = (props) => {
   const history = useHistory();
 
   return (
-    <div>
+    <CardContainer>
       <div onClick={() => goToRestaurant(history, props.id)}>
-        <img width="200" src={props.src} alt={props.name} />
-        <p>{props.name}</p>
+        
+        <ImgCard src={props.src} alt={props.name} />
+        
+        <RestauranteCardText>{props.name}</RestauranteCardText>
       </div>
-      <p>{props.deliveryTime} min</p>
-      <p>Frete R${props.shipping}</p>
-    </div>
+      <TempoEntrega>{props.deliveryTime} min</TempoEntrega>
+      <FretCard>Frete R${props.shipping}</FretCard>
+    </CardContainer>
   );
 };
 

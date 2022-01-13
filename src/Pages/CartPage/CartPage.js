@@ -4,8 +4,9 @@ import Menu from '../../Components/Menu/Menu'
 const CartPage = () => {
     return (
         <div>
-            <Menu />
+            
             <h1>Cart</h1>
+            <Menu />
         </div>
     )
 }
