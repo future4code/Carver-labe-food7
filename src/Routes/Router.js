@@ -12,6 +12,7 @@ import SignUpPage from "../Pages/SignUpPage/SignUpPage"
 
 import ErrorPage from "../Pages/ErrorPage/ErrorPage"
 import SignAddressPage from "../Pages/SignAddressPage/SignAddressPage";
+import SplashScreen from "../Components/SplashScreem/SplashScreem";
 
 const Router = () => {
     return(
