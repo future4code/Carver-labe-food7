@@ -17,11 +17,11 @@ const CardProduto = ({
 
   return (
     <div>
-      <img img={imagem} />
+      <img width="200" src={imagem} />
       <div>
         <p>{nome}</p>
         <p>{descricao}</p>
-        <p>R$ {preco.toFixed(2).replace('.', ',')}</p>
+        <p>R$ {preco}</p>
       </div>
       {findId.length == 0 ? (
         <button onClick={selecionarPedido}>adicionar</button>

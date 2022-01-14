@@ -27,21 +27,21 @@ align-items: center;
 outline: none;
 `
 
-const AparecePopUP = ({ abrir, fecharPopUp, quantidade, setQuantidade, adicionarPedido, produto, idRestaurante, restaurante }) => {
+const AparecePopUP = ({ abrir, fecharPopUp, quantidade, setQuantidade, produto, restaurante }) => {
     
     const handleChange = (event) => {
         setQuantidade(event.target.value)
     }   
 
-    const {restauranteAtual, setRestauranteAtual, carrinho, setCarrinho} = useContext(GlobalContext)
+    const {restauranteAtual, setRestauranteAtual, carrinho, setCarrinho, adicionarPedido} = useContext(GlobalContext)
 
     const definirPedido = () => {
-        if (restauranteAtual.id === '' || restauranteAtual.id === idRestaurante) {
+        if (restauranteAtual.id === '' || restauranteAtual.id === restaurante.id) {
             if (quantidade > 0) {
                 adicionarPedido(produto.id, quantidade)
                 fecharPopUp()
                 setRestauranteAtual({
-                    id: idRestaurante,
+                    id: restaurante.id,
                     deliveryTime: restaurante.deliveryTime,
                     shipping: restaurante.shipping,
                     address: restaurante.address,
