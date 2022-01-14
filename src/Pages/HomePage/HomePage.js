@@ -13,6 +13,7 @@ import {HomePageContainer,
         StyledToolbar} from './styled' 
 import { goToSearch } from '../../Routes/Coordinator'
 import { useHistory } from 'react-router-dom'
+import Header from "../../Components/Header/header";
 
 const HomePage = () => {
   useProtectedPage();
@@ -59,9 +60,7 @@ const HomePage = () => {
     return (
         <HomePageContainer>
             
-            {/* <StyledToolbar>   */}           
-            <TextMenu>Rapp4</TextMenu>
-            {/* </StyledToolbar> */}
+            <Header title={'Rappi4'} />
            
             <label>         
             <TextField

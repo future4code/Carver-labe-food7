@@ -7,11 +7,12 @@ import styled from "styled-components";
 
 export const CardContainer = styled.div`
 
-  width: 358px;
-  height: 190px;
-  padding: 0 0 16px;
+  min-height: 190px;
   border-radius: 8px;
   border: solid 1px #b8b8b8;
+  width: 100%;
+  max-width: 328px;
+  margin: 0 auto 0.5rem; 
 
 `
 export const ImgCard = styled.img`
@@ -25,6 +26,7 @@ export const ImgCard = styled.img`
   margin-right: auto;
   
 `
+
 
 export const RestauranteCardText = styled.p`
   

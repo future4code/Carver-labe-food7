@@ -10,6 +10,12 @@ import AparecePopUp from "../../Components/PopUp";
 import CardProduto from "../../Components/CardProduto/CardProduto";
 import Menu from "../../Components/Menu/Menu";
 import { SettingsPowerSharp } from "@mui/icons-material";
+import {ImgRestaurant, 
+        TextRest, 
+        DetalhesRest, 
+        InfoRest,
+        CategoriaCard } from './styled'
+import Header from '../../Components/Header/header'
 
 const RestaurantPage = () => {
   useProtectedPage();
@@ -52,7 +58,9 @@ const RestaurantPage = () => {
 
     const listaProdutos = filtro.map((produto) => {
       const produtoId = pedido.products.filter((product) => product.id === produto.id);
+      
       return (
+        
         <CardProduto
                     key={produto.id}
                     imagem={produto.photoUrl}
@@ -77,7 +85,9 @@ const RestaurantPage = () => {
 
     return (
       <div>
+        <CategoriaCard>
         {categoria}
+        </CategoriaCard>
         {listaProdutos}
       </div>
     );
@@ -103,13 +113,19 @@ const RestaurantPage = () => {
               idRestaurante={restaurante.restaurant.id}
               restaurante={restaurante.restaurant}
           />
-        <div>
-          <img src={restaurante.restaurant.logoUrl} alt={restaurante.restaurant.name}/>
-          <p>{restaurante.restaurant.name}</p>
+          <div>
+        
+          <Header title={'Restaurantes'}/>
+          <DetalhesRest>
+          <ImgRestaurant src={restaurante.restaurant.logoUrl} alt={restaurante.restaurant.name}/>
+          <TextRest>{restaurante.restaurant.name}</TextRest>          
           <p>{restaurante.restaurant.category}</p>
+          <InfoRest>
           <p>{restaurante.restaurant.deliveryTime} min</p>
           <p>Frete R$ {restaurante.restaurant.shipping}</p>
-          <p>{restaurante.restaurant.address}</p>
+          </InfoRest>
+          <p>{restaurante.restaurant.address}</p>          
+        </DetalhesRest>
         </div>
        </> 
       )}

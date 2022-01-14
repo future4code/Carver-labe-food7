@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../../Global/GlobalContext';
+import { ProdutoCard, ButtonAdicionar, Imagem, DescricaoProduto, ButtonRemover, InfoCard, NomeProduto } from './styled';
 
 const CardProduto = ({
   id,
@@ -16,17 +17,18 @@ const CardProduto = ({
   const findId = pedido?.products.filter((produto) => produto.id === id);
 
   return (
-    <div>
-      <img width="200" src={imagem} />
-      <div>
-        <p>{nome}</p>
-        <p>{descricao}</p>
+    <ProdutoCard>
+      
+      <Imagem src={imagem} />
+      <InfoCard>
+        <NomeProduto>{nome}</NomeProduto>
+        <DescricaoProduto>{descricao}</DescricaoProduto>
         <p>R$ {preco}</p>
-      </div>
+      </InfoCard>
       {findId.length == 0 ? (
-        <button onClick={selecionarPedido}>adicionar</button>
+        <ButtonAdicionar onClick={selecionarPedido}>adicionar</ButtonAdicionar>
       ) : (
-        <button
+        <ButtonRemover
           onClick={() => {
             removerPedido(id);
             if (pedido.products.length == 1) {
@@ -39,10 +41,11 @@ const CardProduto = ({
             }
           }}>
           Remover
-        </button>
+        </ButtonRemover>
       )}
       {findId.length > 0 && <span>{findId[0].quantity}</span>}
-    </div>
+      
+    </ProdutoCard>
   );
 };
 

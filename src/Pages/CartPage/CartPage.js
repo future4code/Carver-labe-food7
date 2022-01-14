@@ -5,6 +5,7 @@ import GlobalContext from '../../Global/GlobalContext';
 import { useProtectedPage } from '../../Hooks/useProtectedPage';
 import useRequestData from "../../Hooks/useRequestData";
 import CardProduto from "../../Components/CardProduto/CardProduto";
+import Header from '../../Components/Header/header';
 
 const CartPage = () => {
     useProtectedPage()
@@ -30,6 +31,7 @@ const CartPage = () => {
     }
     return (
         <div>
+            <Header title={"Meu Carrinho"}/>
             <div>
                 {restauranteAtual.id && 
                 <div>
