@@ -74,7 +74,6 @@ const AparecePopUP = ({ abrir, fecharPopUp, quantidade, setQuantidade, produto, 
         </BodyModal>
     )
 
-
     return ( 
         <div>
             <SModal open={abrir} onClose={fecharPopUp}> 
