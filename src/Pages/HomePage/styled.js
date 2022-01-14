@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import Toolbar from '@mui/material/Toolbar'
+
 
 
 export const HomePageContainer = styled.div`
@@ -29,14 +29,23 @@ export const TextMenu = styled.h2`
 
 
 export const FiltroHomeContainer = styled.div`
-  width: 360px;
-  height: 42px;
-  margin: 8px 0 0;
-  padding: 12px 0 12px 16px;
+    
+    width: auto;
+    max-width: 348px;
+    overflow: overlay;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 20px;
+    padding: 20px 0px;
+    margin: 0.5rem auto;
+    box-sizing: inherit;
 `
 
 export const TextFiltroHome = styled.strong`
-  width: 87px;
+  
+  
+width: 87px;
   height: 18px;
   margin: 0 8px 0 0;
   font-family: Roboto;
@@ -50,12 +59,3 @@ export const TextFiltroHome = styled.strong`
   color:#000000;
 `
 
- export const StyledToolbar = styled(Toolbar)`
-  width: 315px;
-  height: 74px;
-  margin: 0;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0.5px 0 0 rgba(0, 0, 0, 0.25);
-  background-color: #fff;`
- 
