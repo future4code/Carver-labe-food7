@@ -15,7 +15,7 @@ const CardProduto = ({
     useContext(GlobalContext);
 
   const findId = pedido?.products.filter((produto) => produto.id === id);
-
+  console.log("pedido")
   return (
     <ProdutoCard>
       
