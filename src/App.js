@@ -1,18 +1,14 @@
-import { ThemeProvider } from '@mui/material/styles';
-import React from 'react';
-import Router from './Routes/Router';
-import theme from './Constants/theme';
-import SplashScreen from './Components/SplashScreem/SplashScreem';
-
-
+import React from "react";
+import { ThemeProvider } from "@mui/material/styles";
+import Router from "./routes/Router";
+import theme from "./constants/theme";
+import SplashScreen from "./components/SplashScreem/SplashScreem";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-        {SplashScreen}
-      
-      <Router/>   
-   
+      {SplashScreen}
+      <Router />
     </ThemeProvider>
   );
 }

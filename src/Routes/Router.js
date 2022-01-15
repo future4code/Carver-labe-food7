@@ -1,18 +1,17 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import CartPage from "../Pages/CartPage/CartPage"
-import EditAdressPage from "../Pages/EditAdressPage/EditAdressPage"
-import EditProfilePage from "../Pages/EditProfilePage/EditProfilePage"
-import HomePage from "../Pages/HomePage/HomePage"
-import LoginPage from "../Pages/LoginPage/LoginPage"
-import ProfilePage from "../Pages/ProfilePage/ProfilePage"
-import RestaurantPage from "../Pages/RestaurantPage/RestaurantPage"
-import SearchPage from "../Pages/SearchPage/SearchPage"
-import SignUpPage from "../Pages/SignUpPage/SignUpPage"
-
-import ErrorPage from "../Pages/ErrorPage/ErrorPage"
-import SignAddressPage from "../Pages/SignAddressPage/SignAddressPage";
-import SplashScreen from "../Components/SplashScreem/SplashScreem";
+import CartPage from "../pages/CartPage/CartPage"
+import EditAdressPage from "../pages/EditAdressPage/EditAdressPage"
+import EditProfilePage from "../pages/EditProfilePage/EditProfilePage"
+import HomePage from "../pages/HomePage/HomePage"
+import LoginPage from "../pages/LoginPage/LoginPage"
+import ProfilePage from "../pages/ProfilePage/ProfilePage"
+import RestaurantPage from "../pages/RestaurantPage/RestaurantPage"
+import SearchPage from "../pages/SearchPage/SearchPage"
+import SignUpPage from "../pages/SignUpPage/SignUpPage"
+import ErrorPage from "../pages/ErrorPage/ErrorPage"
+import SignAddressPage from "../pages/SignAddressPage/SignAddressPage";
+import SplashScreen from "../components/SplashScreem/SplashScreem";
 
 const Router = () => {
     return(

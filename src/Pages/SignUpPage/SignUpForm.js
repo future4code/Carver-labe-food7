@@ -1,7 +1,7 @@
 import React from "react";
-import { SignUp } from '../../Services/Access'
+import { SignUp } from '../../services/Access'
 import { useHistory } from "react-router-dom";
-import useForm from '../../Hooks/useForm'
+import useForm from '../../hooks/useForm'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { SingUpContainer, TexfieldContainer } from "../SignUpPage/styled";

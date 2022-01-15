@@ -1,93 +1,86 @@
 import React, { useContext, useState } from "react";
-import { BASE_URL } from "../../Constants/URL";
-import useRequestData from "../../Hooks/useRequestData";
-import { useParams } from "react-router-dom";
-import { useProtectedPage } from "../../Hooks/useProtectedPage";
-import { useHistory } from "react-router-dom";
-import { goToHome } from "../../Routes/Coordinator";
-import GlobalContext from '../../Global/GlobalContext';
-import AparecePopUp from "../../Components/PopUp";
-import CardProduto from "../../Components/CardProduto/CardProduto";
-import Menu from "../../Components/Menu/Menu";
+import { BASE_URL } from "../../constants/URL";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
+import { useRequestData } from "../../hooks/useRequestData";
+import { useParams, useHistory } from "react-router-dom";
+import { goToHome } from "../../routes/Coordinator";
+import GlobalContext from "../../contexts/GlobalContext";
+import PopUp from "../../components/PopUp/PopUp";
+import CardProduto from "../../components/CardProduto/CardProduto";
+import Menu from "../../components/Menu/Menu";
+import Header from "../../components/Header/header";
 import { SettingsPowerSharp } from "@mui/icons-material";
-import {ImgRestaurant, 
-        TextRest, 
-        DetalhesRest, 
-        InfoRest,
-        CategoriaCard } from './styled'
-import Header from '../../Components/Header/header'
+import {
+  ImgRestaurant,
+  TextRest,
+  DetalhesRest,
+  InfoRest,
+  CategoriaCard,
+} from "./styled";
 
 const RestaurantPage = () => {
   useProtectedPage();
-  const { carrinho, setCarrinho, pedido, setPedido, adicionarPedido, removerPedido } = useContext(GlobalContext)
+  const {
+    carrinho,
+    setCarrinho,
+    pedido,
+    setPedido,
+    adicionarProduto,
+    removerProduto,
+  } = useContext(GlobalContext);
   const params = useParams();
   const restaurante = useRequestData({}, `${BASE_URL}/restaurants/${params.id}`);
   const history = useHistory();
-  const [abrir, setAbrir] = useState(false)
-  const [produto, setProduto] = useState(false)
+  const [aberto, setAberto] = useState(false);
+  const [produto, setProduto] = useState(false);
+  const [quantidade, setQuantidade] = useState("");
 
   const abrirPopUp = () => {
-    setAbrir(true)
-  }
+    setAberto(true);
+  };
 
   const fecharPopUp = () => {
-    setAbrir(false)
-  }
+    setAberto(false);
+  };
 
-  const [quantidade, setQuantidade] = useState("")
-
-  const categorias =
-    restaurante.restaurant &&
-    restaurante.restaurant.products &&
-    restaurante.restaurant.products.map((produto) => {
+  const categorias = restaurante.restaurant && restaurante.restaurant.products && restaurante.restaurant.products.map((produto) => {
       return produto.category;
   });
 
-  const listaCategorias =
-    categorias &&
-    categorias.filter((item, index) => {
+  const listaCategorias = categorias && categorias.filter((item, index) => {
       return categorias.indexOf(item) === index;
-    });
-
-  const abrirSelect = () => {
-
-  }
+  });
 
   const produtoPorCategoria = (categoria, array) => {
     const filtro = array.filter((item) => item.category === categoria);
 
     const listaProdutos = filtro.map((produto) => {
-      const produtoId = pedido.products.filter((product) => product.id === produto.id);
-      
       return (
-        
         <CardProduto
-                    key={produto.id}
-                    imagem={produto.photoUrl}
-                    nome={produto.name}
-                    descricao={produto.description}
-                    preco={produto.price}
-                    id={produto.id}
-                    selecionarPedido={() => {
-                      setProduto({
-                        id: produto.id,
-                        imagem: produto.photoUrl,
-                        nome: produto.name,
-                        descricao: produto.description,
-                        preco: produto.price,
-                      });
-                      abrirPopUp();
-                    }}
-                    removerPedido={removerPedido}
-                  />
+          key={produto.id}
+          imagem={produto.photoUrl}
+          nome={produto.name}
+          descricao={produto.description}
+          preco={produto.price}
+          id={produto.id}
+          selecionarPedido={() => {
+            setProduto({
+              id: produto.id,
+              imagem: produto.photoUrl,
+              nome: produto.name,
+              descricao: produto.description,
+              preco: produto.price,
+            });
+            abrirPopUp();
+          }}
+          removerProduto={removerProduto}
+        />
       );
     });
 
     return (
       <div>
-        <CategoriaCard>
-        {categoria}
-        </CategoriaCard>
+        <CategoriaCard>{categoria}</CategoriaCard>
         {listaProdutos}
       </div>
     );
@@ -102,36 +95,37 @@ const RestaurantPage = () => {
       <button onClick={() => goToHome(history)}>Voltar</button>
       {restaurante.restaurant && (
         <>
-          <AparecePopUp 
-              abrir={abrir}
-              setAbrir={setAbrir}
-              abrirPopUp={abrirPopUp}
-              fecharPopUp={fecharPopUp}
-              quantidade={quantidade}
-              setQuantidade={setQuantidade}
-              produto={produto}
-              idRestaurante={restaurante.restaurant.id}
-              restaurante={restaurante.restaurant}
+          <PopUp
+            aberto={aberto}
+            setAberto={setAberto}
+            abrirPopUp={abrirPopUp}
+            fecharPopUp={fecharPopUp}
+            quantidade={quantidade}
+            setQuantidade={setQuantidade}
+            produto={produto}
+            idRestaurante={params.id}
+            restaurante={restaurante.restaurant}
           />
           <div>
-        
-          <Header title={'Restaurantes'}/>
-          <DetalhesRest>
-          <ImgRestaurant src={restaurante.restaurant.logoUrl} alt={restaurante.restaurant.name}/>
-          <TextRest>{restaurante.restaurant.name}</TextRest>          
-          <p>{restaurante.restaurant.category}</p>
-          <InfoRest>
-          <p>{restaurante.restaurant.deliveryTime} min</p>
-          <p>Frete R$ {restaurante.restaurant.shipping}</p>
-          </InfoRest>
-          <p>{restaurante.restaurant.address}</p>          
-        </DetalhesRest>
-        </div>
-       </> 
+            <Header title={"Restaurantes"} />
+            <DetalhesRest>
+              <ImgRestaurant
+                src={restaurante.restaurant.logoUrl}
+                alt={restaurante.restaurant.name}
+              />
+              <TextRest>{restaurante.restaurant.name}</TextRest>
+              <p>{restaurante.restaurant.category}</p>
+              <InfoRest>
+                <p>{restaurante.restaurant.deliveryTime} min</p>
+                <p>Frete R$ {restaurante.restaurant.shipping}</p>
+              </InfoRest>
+              <p>{restaurante.restaurant.address}</p>
+            </DetalhesRest>
+          </div>
+        </>
       )}
-
       {filtroCategorias}
-      <Menu/> 
+      <Menu />
     </div>
   );
 };

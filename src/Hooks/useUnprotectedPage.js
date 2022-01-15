@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
-import { goToHome } from "../Routes/Coordinator";
+import { goToHome } from "../routes/Coordinator";
 
 export const useUnprotectedPage = () => {
     const history = useHistory()

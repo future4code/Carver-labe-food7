@@ -1,6 +1,14 @@
-import React, { useContext } from 'react';
-import GlobalContext from '../../Global/GlobalContext';
-import { ProdutoCard, ButtonAdicionar, Imagem, DescricaoProduto, ButtonRemover, InfoCard, NomeProduto } from './styled';
+import React, { useContext } from "react";
+import GlobalContext from "../../contexts/GlobalContext";
+import {
+  ProdutoCard,
+  ButtonAdicionar,
+  Imagem,
+  DescricaoProduto,
+  ButtonRemover,
+  InfoCard,
+  NomeProduto,
+} from "./styled";
 
 const CardProduto = ({
   id,
@@ -9,42 +17,42 @@ const CardProduto = ({
   descricao,
   preco,
   selecionarPedido,
-  removerPedido,
+  removerProduto,
 }) => {
-  const { pedido, setRestauranteAtual, restauranteAtual } =
+  const { carrinho, restaurantePedido, setRestaurantePedido } =
     useContext(GlobalContext);
 
-  const findId = pedido?.products.filter((produto) => produto.id === id);
-  console.log("pedido")
+  const exibirProduto = carrinho?.products.filter(
+    (produto) => produto.id === id
+  );
   return (
     <ProdutoCard>
-      
       <Imagem src={imagem} />
       <InfoCard>
         <NomeProduto>{nome}</NomeProduto>
         <DescricaoProduto>{descricao}</DescricaoProduto>
-        <p>R$ {preco}</p>
+        <p>R$ {preco.toFixed(2).replace(".", ",")}</p>
       </InfoCard>
-      {findId.length == 0 ? (
+      {exibirProduto.length === 0 ? (
         <ButtonAdicionar onClick={selecionarPedido}>adicionar</ButtonAdicionar>
       ) : (
         <ButtonRemover
           onClick={() => {
-            removerPedido(id);
-            if (pedido.products.length == 1) {
-              setRestauranteAtual({
-                id: '',
-                address: '',
-                deliveryTime: '',
-                shipping: '',
+            removerProduto(id);
+            if (carrinho.products.length === 1) {
+              setRestaurantePedido({
+                id: "",
+                address: "",
+                deliveryTime: "",
+                shipping: "",
               });
             }
-          }}>
+          }}
+        >
           Remover
         </ButtonRemover>
       )}
-      {findId.length > 0 && <span>{findId[0].quantity}</span>}
-      
+      {exibirProduto.length > 0 && <span>{exibirProduto[0].quantity}</span>}
     </ProdutoCard>
   );
 };

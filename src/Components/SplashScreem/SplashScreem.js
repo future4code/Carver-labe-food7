@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { goToLogin } from '../../Routes/Coordinator'
+import { goToLogin } from '../../routes/Coordinator'
 import {SplashContainer, Logo} from './styledSplash'
 
 

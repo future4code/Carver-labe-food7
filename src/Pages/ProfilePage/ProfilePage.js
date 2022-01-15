@@ -1,13 +1,12 @@
 
 import React, { useEffect } from 'react'
-import useRequestData from '../../Hooks/useRequestData'
-import { BASE_URL } from '../../Constants/URL'
-import { goToEditAdress, goToEditProfile } from '../../Routes/Coordinator'
+import { useRequestData } from '../../hooks/useRequestData'
+import { BASE_URL } from '../../constants/URL'
+import { goToEditAdress, goToEditProfile } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
-import { EditProfile } from '../../Services/Access'
-import { useProtectedPage } from '../../Hooks/useProtectedPage'
-
-import Menu from '../../Components/Menu/Menu'
+import { EditProfile } from '../../services/Access'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
+import Menu from '../../components/Menu/Menu'
 
 
 const ProfilePage = () => {
