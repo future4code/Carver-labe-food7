@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import useForm from "../../Hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import { ButtonLoginContainer, LoginContainer,TexfieldLogin } from "./styled";
+import { ButtonLogin, LoginFormContainer,TexfieldLogin } from "./styled";
 
 
 const LoginForm = () => {
@@ -17,7 +17,7 @@ const LoginForm = () => {
   };
 
   return (
-    <LoginContainer>
+    <LoginFormContainer>
      
       <form onSubmit={onSubmitLogin}>
         <TexfieldLogin>
@@ -25,12 +25,13 @@ const LoginForm = () => {
           name={"email"}
           value={form.email}
           onChange={handleInputOnChange}
-          label={"E-mail"}
+          label={"e-mail"}
           type={"email"}
           variant={"outlined"}
           fullWidth
           margin={"dense"}
           required
+          
         />
        </TexfieldLogin>
        <TexfieldLogin>
@@ -38,7 +39,7 @@ const LoginForm = () => {
           name={"password"}
           value={form.password}
           onChange={handleInputOnChange}
-          label={"Senha"}
+          label={"senha"}
           type={"password"}
           variant={"outlined"}
           fullWidth
@@ -46,14 +47,14 @@ const LoginForm = () => {
           required
         />
         </TexfieldLogin>
-       <ButtonLoginContainer>
+       <ButtonLogin>
         <Button fullWidth variant="contained" type="submit">
           <p>Entrar</p>
         </Button>
-        </ButtonLoginContainer>
+        </ButtonLogin>
        
       </form>
-    </LoginContainer>
+    </LoginFormContainer>
   );
 };
 

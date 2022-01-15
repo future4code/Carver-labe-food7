@@ -3,6 +3,8 @@ import React from 'react';
 import Router from './Routes/Router';
 import theme from './Constants/theme';
 import SplashScreen from './Components/SplashScreem/SplashScreem';
+import GlobalStyle from './Global/GlobalStyle';
+
 
 
 
@@ -11,8 +13,9 @@ function App() {
     <ThemeProvider theme={theme}>
         {SplashScreen}
       
-      <Router/>   
-   
+      <Router/>
+        
+   <GlobalStyle/>
     </ThemeProvider>
   );
 }

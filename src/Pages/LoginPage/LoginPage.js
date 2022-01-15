@@ -3,14 +3,19 @@ import LoginForm from "./LoginForm";
 import { LogoImage, TextSingUp } from "./styled";
 import { useUnprotectedPage } from "../../Hooks/useUnprotectedPage"
 import SplashScreen from "../../Components/SplashScreem/SplashScreem";
+import { LoginContainer } from "./styled";
+
 
 
 const LoginPage = () => {
   useUnprotectedPage()
   const [loading, setLoading] = useState(true);
   
+
+
+
   return (
-    <div>
+    <LoginContainer>
       {loading ? (
         <SplashScreen setLoading={setLoading} />
       ) : (
@@ -20,7 +25,17 @@ const LoginPage = () => {
       <LoginForm />
       </>
       )}
-    </div>
+         {/* <Button
+        type={"submit"}
+        color="secondary"
+        fullWidth
+        margin={"normal"}
+        onClick
+      >
+        Não possui cadastro? Clique aqui.
+      </Button> */}
+      
+    </LoginContainer>
   );
 };
 

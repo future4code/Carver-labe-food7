@@ -2,16 +2,28 @@ import { style } from "@mui/system";
 import styled from "styled-components";
 
 
+export const SingUpFormContainer = styled.div`
+
+  display: grid;
+  place-items: center;
+ 
+
+`
+
 export const SingUpContainer = styled.div`
 
-    width: 360px;
-    height: 640px;
-    padding: 0 0 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+    margin: 1rem auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 
 `
 
 
-export const ButtonContainer = styled.div`
+export const ButtonCadastro = styled.div`
         
   width: 328px;
   height: 42px;
@@ -25,7 +37,7 @@ export const ButtonContainer = styled.div`
 export const TexfieldContainer = styled.div`
 
   width: 331px;
-  height: 62px;
+  height: 360px;
   margin: 20px 0px 0;
   padding: 0 16px 8px;
 
@@ -34,27 +46,19 @@ export const TexfieldContainer = styled.div`
 
 export const TextSingUp = styled.h4`
 
-  width: 326px;
-  height: 18px;
-  font-family: Roboto;
-  font-size: 20px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.39px;
-  text-align: center;
-  color: #000;
+      font-size: 1rem;
+      text-align: center;
+      font-weight: normal;
+      letter-spacing: -0.39px;
+      color: #000000;
 
 
 `
 
 export const LogoImage = styled.img`
 
-  width: 104px;
-  height: 58px;
-  margin: 24px 128px 16px;
-  object-fit: contain;
+margin-top: 2rem;
+margin-bottom: 1rem;
 
 `
 
