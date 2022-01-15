@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import useForm from '../../hooks/useForm'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { SingUpContainer, TexfieldContainer } from "../SignUpPage/styled";
+import { ButtonCadastro, SingUpFormContainer, TexfieldContainer } from "../SignUpPage/styled";
 
 
 
@@ -22,7 +22,7 @@ const SignUpForm = () => {
     }
    
     return (
-            <SingUpContainer>
+            <SingUpFormContainer>
                 <form onSubmit={onSubmitForm}>
                     <TexfieldContainer>
                     <TextField
@@ -36,8 +36,7 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
-                    </TexfieldContainer>
-                    <TexfieldContainer>
+                    
                     <TextField
                         
                         name={"email"}
@@ -50,8 +49,7 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
-                    </TexfieldContainer>
-                    <TexfieldContainer>
+                   
                     <TextField
                         name={"cpf"}
                         value={form.cpf}
@@ -63,8 +61,7 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
-                    </TexfieldContainer>
-                    <TexfieldContainer>
+                   
                     <TextField
                         name={"password"}
                         value={form.password}
@@ -76,8 +73,7 @@ const SignUpForm = () => {
                         margin={"dense"}
                         required
                     />
-                    </TexfieldContainer>
-                    <TexfieldContainer>
+                    
                     <TextField
                         name={"password2"}
                         value={form.password2}
@@ -96,7 +92,7 @@ const SignUpForm = () => {
                      </Button>      
                            
                 </form>
-            </SingUpContainer>
+            </SingUpFormContainer>
     )
     
 }

@@ -35,7 +35,7 @@ export const TexfieldLogin = styled.div`
 
 
 `
-export const ButtonLoginContainer = styled.div`
+export const ButtonLogin = styled.div`
         
   width: 328px;
   height: 42px;
@@ -44,11 +44,21 @@ export const ButtonLoginContainer = styled.div`
   
 
 `
-export const LoginContainer = styled.div`
+export const LoginFormContainer = styled.div`
 
-    width: 360px;
-    height: 640px;
-    padding: 0 0 26px;
+  display: grid;
+  place-items: center;
+
+`
+export const LoginContainer = styled.div`
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+    margin: 16px auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
 
 `
 

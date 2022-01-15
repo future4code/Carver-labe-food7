@@ -7,7 +7,9 @@ import { useHistory } from 'react-router-dom'
 import { EditProfile } from '../../services/Access'
 import { useProtectedPage } from '../../hooks/useProtectedPage'
 import Menu from '../../components/Menu/Menu'
-
+import Header from '../../components/Header/header'
+import { Profile, Imagem } from './styled'
+import { Button } from '@mui/material'
 
 const ProfilePage = () => {
     useProtectedPage();
@@ -17,18 +19,21 @@ const ProfilePage = () => {
     console.log(pedidos)
 
     return (
-        <div>
-            <h1>Meu Perfil</h1>
+        <Profile>
+            <main>            
+            <Header title={"Meu Perfil"}/>
         {perfil.user ? <div>
             <div id={"personalData"}>
                 <div>
                     <p id={"nome"}>{perfil.user.name}</p>
                     <p id={"email"}>{perfil.user.email}</p>
                     <p id={"cpf"}>{perfil.user.cpf}</p>
-                    <button onClick={()=>goToEditProfile(history)}>Editar Perfil</button>
+                    <Button onClick={()=>goToEditProfile(history)}>Editar<img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/CC94162C-8ED7-463F-A334-C9DEFFBA9211.svg"/></Button>
+                
                     <p>Endereço cadastrado </p>
                     <p id={"endereco"}>{perfil.user.address}</p>
-                    <button onClick={()=>goToEditAdress(history)}>Editar Perfil</button>
+                    <Button onClick={()=>goToEditAdress(history)}>Edidar<img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/CC94162C-8ED7-463F-A334-C9DEFFBA9211.svg"/></Button>
+
                 </div>
             </div>
         </div> : <div>Loading..</div>}  
@@ -36,10 +41,10 @@ const ProfilePage = () => {
         <hr></hr>
         {pedidos.length === 0 ? <div> ({pedidos})</div> : <div>Você ainda não realizou nenhum pedido!</div>}
         <Menu />
-        </div>
+        </main>
+
+        </Profile>
     )
 }
-
-
 
 export default ProfilePage
