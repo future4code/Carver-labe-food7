@@ -9,6 +9,7 @@ import Header from '../../Components/Header/header';
 import { dividerClasses } from '@mui/material';
 import { Button } from "@mui/material";
 import axios from 'axios';
+import {CartContainer, MainContainer, EnderecoCart, OpcaoPgto, PrecoContainer, Preco} from './styled'
 
 const CartPage = () => {
     useProtectedPage()
@@ -80,16 +81,16 @@ const CartPage = () => {
     }
 
     return (
-        <div>
+        <CartContainer>
             <Header title={"Meu Carrinho"}/>
-
+            <MainContainer>
             <div>
             {perfil.user ? <div>
             <div id={"personalData"}>
-                <div>
+                <EnderecoCart>
                     <p>Endereço de entrega </p>
                     <p id={"endereco"}>{perfil.user.address}</p>    
-                </div>
+                </EnderecoCart>
             </div>
              </div> : <div>Loading..</div>}
             </div>
@@ -114,7 +115,8 @@ const CartPage = () => {
                  } 
                 </div>
 
-                 <div>
+                 <PrecoContainer>
+                 <Preco>
                 {precoTotal ? (
                     <div>
                       <span>SUBTOTAL</span>
@@ -127,9 +129,9 @@ const CartPage = () => {
                     </>
                     )
                 }
-                </div>
+                </Preco>
 
-                <div>
+                <Preco>
                 {restauranteAtual.id ? (
                     <>
                       <span>FRETE</span>
@@ -142,9 +144,9 @@ const CartPage = () => {
                     </>
                 )
                 }
-                </div>
+                </Preco>
 
-                <div>
+                <Preco>
                 {precoTotal && restauranteAtual.shipping ? (
                     <>
                       <span>TOTAL</span>
@@ -162,8 +164,9 @@ const CartPage = () => {
                     </>
                   )
                 }    
-                </div>
-
+                </Preco>
+                </PrecoContainer>
+               <OpcaoPgto> 
                 <div>
                 <span>Forma de pagamento</span>
                   <form onSubmit={(ev) => ev.preventDefault()}>
@@ -189,7 +192,7 @@ const CartPage = () => {
                       />
                       <label htmlFor='cartao'>Cartão de crédito</label>
                     </div>
-
+                    
                     <Button
                       onClick={() => confirmarPedido()}
                       type={'button'}
@@ -201,11 +204,13 @@ const CartPage = () => {
                     </Button>
                   </form>    
                 </div>
+                </OpcaoPgto>
 
                  </div> 
             </div>
+            </MainContainer>
             <Menu />
-        </div>
+        </CartContainer>
         
     )
 }

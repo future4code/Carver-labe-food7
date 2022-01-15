@@ -4,20 +4,15 @@ import styled from 'styled-components'
 
 export const MenuHome = styled.div`
 
-  width: 112px;
-  height: 40px;
-  margin-top: 0;
-  padding: 20px 170px 11px 77px;
-  display: grid;
-  grid-template-columns:repeat(3,1fr);
-  align-items: center;
-  position:fixed;
-  bottom:0px;
-  background-color: #ffffff;
-  border-top:1px solid #BFBFBF;
-  
-  
-` 
-
-
-
+   align-items:center;
+   display:grid;
+   grid-template-columns:repeat(3,1fr);
+   justify-items:center;
+   background-color: #FFF;
+   width:377px;
+   height: 60px;
+   border-top:1px solid #BFBFBF;
+   position: fixed;
+   bottom: 0px;
+   
+  `

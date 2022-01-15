@@ -10,7 +10,7 @@ export const ProdutoCard = styled.div`
   margin: 1.25rem 0;
   border: solid 1px #f3c9c2;
   border-radius: 0.5rem;
-  width: 100%;
+  width: 354px;
   position: relative;
   p {
     margin: 0 0 6px 0;
