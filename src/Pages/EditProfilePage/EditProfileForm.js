@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { EditProfile } from "../../Services/Access";
+import { EditProfile } from "../../services/Access";
 import { useHistory } from "react-router-dom";
-import useForm from "../../Hooks/useForm";
+import useForm from "../../hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ButtonLoginContainer, LoginContainer, TexfieldLogin } from "./styled";
-import { primaryColor } from "../../Constants/colors";
-import { BASE_URL } from "../../Constants/URL";
+import { primaryColor } from "../../constants/colors";
+import { BASE_URL } from "../../constants/URL";
 import axios from "axios";
-import { useProtectedPage } from "../../Hooks/useProtectedPage";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 const EditProfileForm = () => {
   useProtectedPage()

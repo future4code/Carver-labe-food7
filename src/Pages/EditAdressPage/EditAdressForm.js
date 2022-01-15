@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { EditAddress } from '../../Services/Access'
+import { EditAddress } from '../../services/Access'
 import { useHistory } from "react-router-dom";
-import useForm from '../../Hooks/useForm'
+import useForm from '../../hooks/useForm'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import axios from 'axios'
-import { BASE_URL } from "../../Constants/URL";
-import { useProtectedPage } from "../../Hooks/useProtectedPage";
+import { BASE_URL } from "../../constants/URL";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 const EditAddressForm = () => {
     useProtectedPage()

@@ -1,17 +1,22 @@
 import axios from "axios";
-import { BASE_URL } from "../Constants/URL";
-import { goToHome, goToProfile, goToSignAddress, goToSignUp } from "../Routes/Coordinator";
+import { BASE_URL } from "../constants/URL";
+import {
+  goToHome,
+  goToProfile,
+  goToSignAddress,
+  goToSignUp,
+} from "../routes/Coordinator";
 
 export const Login = (body, history) => {
   axios
     .post(`${BASE_URL}/login`, body)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      if(res.data.user.hasAddress === false) {
+      if (res.data.user.hasAddress === false) {
         goToSignAddress(history);
-      }else{
+      } else {
         goToHome(history);
-      } 
+      }
     })
     .catch((err) => {
       alert(err.response.data.message);
@@ -59,20 +64,20 @@ export const SignAddress = (body, clear, history) => {
 
 export const EditProfile = (body, history) => {
   axios
-  .put(`${BASE_URL}/profile`, body, {
-    headers: {
-      auth: localStorage.getItem("token"),
-    },
-  })
-  .then((res) => {
-    console.log(res.data.user)
-    alert("Perfil atualizado com sucesso!");
-    goToProfile(history);
-  })
-  .catch((err) => {
-    console.log(err.message);
-  });
-}
+    .put(`${BASE_URL}/profile`, body, {
+      headers: {
+        auth: localStorage.getItem("token"),
+      },
+    })
+    .then((res) => {
+      console.log(res.data.user);
+      alert("Perfil atualizado com sucesso!");
+      goToProfile(history);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
 
 export const EditAddress = (body, history) => {
   axios
@@ -92,12 +97,18 @@ export const EditAddress = (body, history) => {
     });
 };
 
-export const placeOrder = (body, id, setData) => {
-  axios.post(`${BASE_URL}/restaurants/${id}/order`, body, {headers: {
-    auth: localStorage.getItem("token")
-  }}).then((res) => {
-    setData(res.data)
-  }).catch((err) => {
-    alert(err.response.data.message)
-  })
-}
+export const PlaceOrder = (body, id, setData) => {
+  axios
+    .post(`${BASE_URL}/restaurants/${id}/order`, body, {
+      headers: {
+        auth: localStorage.getItem("token"),
+      },
+    })
+    .then((res) => {
+      setData(res.data);
+      alert(res.data.message)
+    })
+    .catch((err) => {
+      alert(err.response.data.message);
+    });
+};

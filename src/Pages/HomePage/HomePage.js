@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import CardRestaurante from '../../Components/CardRestaurante'
-import Menu from '../../Components/Menu/Menu'
-import { BASE_URL } from '../../Constants/URL'
-import useRequestData from '../../Hooks/useRequestData'
-import { useProtectedPage } from '../../Hooks/useProtectedPage'
-import useForm from '../../Hooks/useForm'
+import CardRestaurante from '../../components/CardRestaurante/CardRestaurante'
+import Menu from '../../components/Menu/Menu'
+import { BASE_URL } from '../../constants/URL'
+import { useRequestData } from '../../hooks/useRequestData'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
+import useForm from '../../hooks/useForm'
 import TextField from '@mui/material/TextField';
 import {HomePageContainer, 
         TextMenu, 
         FiltroHomeContainer, 
         TextFiltroHome, 
         StyledToolbar} from './styled' 
-import { goToSearch } from '../../Routes/Coordinator'
+import { goToSearch } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
-import Header from "../../Components/Header/header";
+import Header from "../../components/Header/header";
 
 const HomePage = () => {
   useProtectedPage();

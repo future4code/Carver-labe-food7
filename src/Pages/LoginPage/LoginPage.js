@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import LoginForm from "./LoginForm";
 import { LogoImage, TextSingUp } from "./styled";
-import { useUnprotectedPage } from "../../Hooks/useUnprotectedPage"
-import SplashScreen from "../../Components/SplashScreem/SplashScreem";
+import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
+import SplashScreen from "../../components/SplashScreem/SplashScreem";
 import { LoginContainer } from "./styled";
-
 
 
 const LoginPage = () => {
   useUnprotectedPage()
   const [loading, setLoading] = useState(true);
   
-
-
-
   return (
     <LoginContainer>
       {loading ? (

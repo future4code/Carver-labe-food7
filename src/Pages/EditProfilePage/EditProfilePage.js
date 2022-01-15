@@ -1,8 +1,8 @@
 import React from 'react'
 import EditProfileForm from './EditProfileForm'
-import { goToProfile } from '../../Routes/Coordinator'
+import { goToProfile } from '../../routes/Coordinator'
 import { useHistory } from 'react-router-dom'
-import { useProtectedPage } from '../../Hooks/useProtectedPage'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
 
 const EditProfilePage = () => {
     useProtectedPage();

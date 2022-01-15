@@ -1,7 +1,7 @@
 import React from "react";
-import { Login } from "../../Services/Access";
+import { Login } from "../../services/Access";
 import { useHistory } from "react-router-dom";
-import useForm from "../../Hooks/useForm";
+import useForm from "../../hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ButtonLogin, LoginFormContainer,TexfieldLogin } from "./styled";

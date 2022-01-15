@@ -1,13 +1,13 @@
 import React from 'react'
-import { goToHome } from '../../Routes/Coordinator'
-import useForm from '../../Hooks/useForm'
+import { goToHome } from '../../routes/Coordinator'
+import useForm from '../../hooks/useForm'
 import { useHistory } from 'react-router-dom'
 import TextField from '@mui/material/TextField';
-import { BASE_URL } from '../../Constants/URL'
-import { useProtectedPage } from '../../Hooks/useProtectedPage'
-import useRequestData from '../../Hooks/useRequestData'
-import CardRestaurante from '../../Components/CardRestaurante'
-import Menu from '../../Components/Menu/Menu'
+import { BASE_URL } from '../../constants/URL'
+import { useProtectedPage } from '../../hooks/useProtectedPage'
+import { useRequestData } from '../../hooks/useRequestData'
+import CardRestaurante from '../../components/CardRestaurante/CardRestaurante'
+import Menu from '../../components/Menu/Menu'
 
 const SearchPage = () => {
     useProtectedPage()
