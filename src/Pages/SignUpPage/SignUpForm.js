@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import useForm from '../../hooks/useForm'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { ButtonCadastro, SingUpFormContainer, TexfieldContainer } from "../SignUpPage/styled";
+import { SingUpFormContainer, TexfieldContainer, ButtonCadastro } from "../SignUpPage/styled";
 
 
 
@@ -86,10 +86,11 @@ const SignUpForm = () => {
                         required
                     />
                     </TexfieldContainer>
-                
+                    <ButtonCadastro>
                     <Button fullWidth variant="contained" type="submit" color="primary">
                      <p>Cadastrar</p>
                      </Button>      
+                     </ButtonCadastro>
                            
                 </form>
             </SingUpFormContainer>

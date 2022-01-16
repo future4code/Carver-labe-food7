@@ -9,7 +9,13 @@ import CardProduto from "../../components/CardProduto/CardProduto";
 import Header from "../../components/Header/header";
 import Menu from "../../components/Menu/Menu";
 import { dividerClasses, Button } from "@mui/material";
-import {CartContainer, MainContainer, EnderecoCart, OpcaoPgto, PrecoContainer, Preco} from './styled'
+import {CartContainer, 
+        MainContainer, 
+        EnderecoCart, 
+        OpcaoPgto, 
+        PrecoContainer, 
+        Preco,
+        } from './styled'
 
 const CartPage = () => {
   useProtectedPage();
@@ -68,8 +74,9 @@ const CartPage = () => {
   return (
     <CartContainer>
       <Header title={"Meu Carrinho"} />
+      <MainContainer>
       {restaurantePedido && (
-        <MainContainer>
+        <div>
           <section>
             {perfil.user && (
               <EnderecoCart>
@@ -97,38 +104,43 @@ const CartPage = () => {
                   removerProduto={removerProduto}
                 />
               ))}</div>) : (<div>
-                <p>CARRINHO VAZIO</p>
+                <p>carrinho vazio.....</p>
               </div>)}
           </section>
           <PrecoContainer>
-            <Preco>
+          <Preco>
               {" "}
               {restaurantePedido.id ? (
                 <>
-                  <p>Frete R${restaurantePedido.shipping},00</p>
+                  <p>FRETE</p>
+                  <p>R${restaurantePedido.shipping},00</p>
                 </>
               ) : (
                 <>
-                  <p>Frete R$0,00</p>
+                  <p>FRETE</p>
+                  <p> R$0,00</p>
                 </>
               )}
             </Preco>
+            
             <Preco>
               {precoTotal && restaurantePedido.shipping ? (
                 <>
-                  <p>
-                    SUBTOTAL R$
-                    {(precoTotal + restaurantePedido.shipping)
+                  <p>SUBTOTAL</p> 
+                   <p> R${(precoTotal + restaurantePedido.shipping)
                       .toFixed(2)
                       .replace(".", ",")}
                   </p>
                 </>
               ) : (
                 <>
-                  <p>SUBTOTAL R$0,00</p>
+                  <p>SUBTOTAL</p> 
+                  <p>R$0,00</p>
                 </>
               )}
             </Preco>
+            
+        
           </PrecoContainer>
           <OpcaoPgto>
             <p>Forma de pagamento</p>
@@ -167,8 +179,9 @@ const CartPage = () => {
               </Button>
             </form>
           </OpcaoPgto>
-        </MainContainer>
+          </div>
       )}
+      </MainContainer>
       <Menu />
     </CartContainer>
   );

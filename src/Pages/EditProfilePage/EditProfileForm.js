@@ -5,7 +5,6 @@ import useForm from "../../hooks/useForm";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { ButtonLoginContainer, LoginContainer, TexfieldLogin } from "./styled";
-import { primaryColor } from "../../constants/colors";
 import { BASE_URL } from "../../constants/URL";
 import axios from "axios";
 import { useProtectedPage } from "../../hooks/useProtectedPage";

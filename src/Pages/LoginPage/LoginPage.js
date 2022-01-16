@@ -3,12 +3,16 @@ import LoginForm from "./LoginForm";
 import { LogoImage, TextSingUp } from "./styled";
 import { useUnprotectedPage } from "../../hooks/useUnprotectedPage"
 import SplashScreen from "../../components/SplashScreem/SplashScreem";
-import { LoginContainer } from "./styled";
-
+import { LoginContainer, ButtonCadastro } from "./styled";
+import { useHistory } from "react-router-dom";
+import {goToSignUp} from '../../routes/Coordinator'
+import { Button } from "@material-ui/core";
 
 const LoginPage = () => {
   useUnprotectedPage()
   const [loading, setLoading] = useState(true);
+
+const history = useHistory();
   
   return (
     <LoginContainer>
@@ -21,16 +25,9 @@ const LoginPage = () => {
       <LoginForm />
       </>
       )}
-         {/* <Button
-        type={"submit"}
-        color="secondary"
-        fullWidth
-        margin={"normal"}
-        onClick
-      >
-        Não possui cadastro? Clique aqui.
-      </Button> */}
-      
+    <ButtonCadastro>  
+    <Button onClick={() => goToSignUp(history)}>Não Possui cadastro? Clique aqui.</Button>
+    </ButtonCadastro>
     </LoginContainer>
   );
 };

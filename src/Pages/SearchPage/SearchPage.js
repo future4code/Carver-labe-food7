@@ -8,6 +8,8 @@ import { useProtectedPage } from '../../hooks/useProtectedPage'
 import { useRequestData } from '../../hooks/useRequestData'
 import CardRestaurante from '../../components/CardRestaurante/CardRestaurante'
 import Menu from '../../components/Menu/Menu'
+import Header from '../../components/Header/header'
+import { Button } from '@mui/material';
 
 const SearchPage = () => {
     useProtectedPage()
@@ -50,8 +52,8 @@ const SearchPage = () => {
 
     return (
         <div>
-            <button onClick={()=>goToHome(history)}>Voltar</button>
-            <h1>Busca</h1>
+            <Button onClick={()=>goToHome(history)}><img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/4FC8F2F3-EE15-457A-B114-9A92B2A97C8A.svg"/></Button>
+            <Header title={"Busca"}/>
             <label>         
             <TextField
               name={"filtroRestaurante"}
@@ -66,7 +68,7 @@ const SearchPage = () => {
             />
             </label> 
             {buscaVazia()}
-            <Menu />
+            
         </div>
     )
 }

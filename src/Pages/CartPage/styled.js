@@ -8,7 +8,7 @@ export const CartContainer = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 `
 
 export const MainContainer = styled.main`
@@ -58,19 +58,17 @@ margin-bottom: 2rem;
 `
 
 
-
-
 export const Preco = styled.div`
 
-width: 328px;
+  width: 328px;
   margin: 0 auto .5rem;
   display: flex;
   justify-content: space-between;
-  span {
-    margin: 0 1rem;
+  p {
+    margin: 0 2rem;
     :nth-child(2) {
       font-weight: bold;
-      color: #e86e5a;
+      color: #E86E5A;
     }
   }
 
