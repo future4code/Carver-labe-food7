@@ -25,7 +25,7 @@ export const FiltroHomeContainer = styled.div`
 export const TextFiltroHome = styled.strong`
   width: 87px;
   height: 18px;
-  margin-right: 20px;
+  margin-right: 2rem;
   font-family: Roboto;
   font-size: 16px;
   font-weight: normal;
@@ -41,3 +41,7 @@ export const InputContainer = styled.div`
   width: 93%;
   margin-left: 0.7rem;
 `;
+
+export const RestaurantesContainer = styled.div`
+  padding-bottom: 9vh;
+`

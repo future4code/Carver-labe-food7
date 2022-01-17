@@ -15,6 +15,7 @@ import {
   FiltroHomeContainer,
   TextFiltroHome,
   InputContainer,
+  RestaurantesContainer
 } from "./styled";
 
 const HomePage = () => {
@@ -104,10 +105,10 @@ const HomePage = () => {
             Mexicana
           </TextFiltroHome>
         </FiltroHomeContainer>
-        {renderRestaurantes}
-        <CardPedido />
-        <Menu />
+        <RestaurantesContainer>{renderRestaurantes}</RestaurantesContainer>
       </HomePageContainer>
+      <CardPedido />
+      <Menu />
     </>
   );
 };

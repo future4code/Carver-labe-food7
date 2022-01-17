@@ -6,7 +6,6 @@ bottom: 9vh;
 background: #e86e5a;
 width: 100vw;
 padding: 0 2rem;
-margin-left: -10px;
 display: flex;
 
 img{

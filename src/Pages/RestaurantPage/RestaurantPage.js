@@ -87,6 +87,7 @@ const RestaurantPage = () => {
 
   return (
     <div>
+    <Header title={"Restaurante"} />
         {restaurante.restaurant && (
         <MainContainer>
           <PopUp
@@ -101,17 +102,19 @@ const RestaurantPage = () => {
             restaurante={restaurante.restaurant}
           />
           <div>
-            <Header title={"Restaurante"} />
             <DetalhesRest>
-              <ImgRestaurant
+            <ImgRestaurant>
+            <img
                 src={restaurante.restaurant.logoUrl}
                 alt={restaurante.restaurant.name}
               />
+            </ImgRestaurant>
+              
               <TextRest>{restaurante.restaurant.name}</TextRest>
               <p>{restaurante.restaurant.category}</p>
               <InfoRest>
                 <p>{restaurante.restaurant.deliveryTime} min</p>
-                <p>Frete R$ {restaurante.restaurant.shipping}</p>
+                <p>Frete R$ {restaurante.restaurant.shipping.toFixed(2).replace(".", ",")}</p>
               </InfoRest>
               <p>{restaurante.restaurant.address}</p>
             </DetalhesRest>

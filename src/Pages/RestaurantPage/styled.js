@@ -1,13 +1,19 @@
 
 import styled from "styled-components";
 
-export const ImgRestaurant = styled.img`
-    width: 97%;
-    height: 90%;
-    margin-top: 1rem;
+export const ImgRestaurant = styled.div`
+    width: 95vw;
+    height: 8rem;
+    margin: 1rem 0;
     border-radius: 20px 20px 0 0;
     object-fit: contain;
     backdrop-filter: blur(2px);
+
+    img {
+      width: 95vw;
+      height: 8rem;
+      border-radius: 20px 20px 0 0;
+    }
 `
 
 export const DetalhesRest = styled.div`
@@ -44,5 +50,5 @@ export const MainContainer = styled.div`
 `
 
 export const ProdutosContainer = styled.div`
-  padding-bottom: 8vh;
+  padding-bottom: 1vh;
 `

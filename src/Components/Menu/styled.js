@@ -11,5 +11,4 @@ export const MenuHome = styled.div`
   border-top: 1px solid #bfbfbf;
   position: fixed;
   bottom: 0px;
-  margin-left: -2px;
 `;

@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
-
-
 export const Profile = styled.div`
- 
   display: grid;
   grid-template-rows: auto 1fr auto;
   max-height: 100vh;
@@ -11,24 +8,21 @@ export const Profile = styled.div`
   height: 100vh;
   letter-spacing: -0.39px;
   color: #000000;
-  margin: 0 auto;
-  
-   main {
-    overflow: auto;
-  }
- 
+  pading: 1rem 0.5rem;
+
 `
 
 export const CardHistoricoContainer = styled.section`
     justify-self: center;
-    margin: 1rem 1rem 1rem 1rem;
-    height: 4.75rem;
 
-
+    h4{
+      text-align: center;
+      font-weigth: normal;
+    }
 `
-export const CardHistorico = styled.div`
 
-display: flex;
+export const CardHistorico = styled.div`
+  display: flex;
   flex-direction: column;
   padding: 1rem;
   height: 5.12rem;
@@ -78,10 +72,31 @@ display: flex;
       color: #000;
      }
 `
+export const DadosContainer = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+`
+export const DadosContainer2 = styled.div `
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #eeeeee;
+  padding: 0 1rem;
 
+  p:first-child{
+    color: #b8b8b8;
+  }
+`
 
+export const HistoricoContainer = styled.div `
+padding: 0 1rem;
 
-
-
-
-
+h3 {
+  border-bottom: 1px solid #000;
+  padding-bottom: 0.5rem;
+  width: 99.7%;
+  font-weight: normal;
+}
+`
