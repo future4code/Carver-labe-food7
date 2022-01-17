@@ -1,15 +1,11 @@
 import styled from "styled-components";
 
-
-
-
 export const CartContainer = styled.div`
-
   display: grid;
   grid-template-rows: auto 1fr auto;
   width: 100%;
   height: 100vh;
-`
+`;
 
 export const MainContainer = styled.main`
   width: 100%;
@@ -17,11 +13,11 @@ export const MainContainer = styled.main`
   margin: 0 auto;
   box-sizing: border-box;
   overflow: auto;
-`
+  padding-bottom: 8vh;
+`;
 
 export const EnderecoCart = styled.div`
-
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
@@ -40,38 +36,59 @@ display: flex;
       color: #b8b8b8;
     }
   }
-
-`
+`;
 
 export const OpcaoPgto = styled.div`
-
- flex-direction: column;
-  width: 328px;
+  flex-direction: column;
+  width: 90vw;
   margin: 0 auto 1rem;
   display: flex;
+
+  p {
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.5rem;
+  }
+
+  input {
+    margin-bottom: 1rem;
+  }
+`;
+
+export const NomeRestaurante = styled.p`
+  color: #e86e5a;
 `
+
+export const ProdutoContainer = styled.div`
+  margin-left: 0.5rem;
+`;
 
 export const PrecoContainer = styled.div`
+  margin: 0 1rem 1rem;
+  width: 90vw;
+`;
 
-margin-bottom: 2rem;
+export const Frete = styled.div`
+  display: flex;
+  justify-content: flex-end;
 
-`
-
+  p:first-child {
+    margin-right: 0.2rem;
+  }
+`;
 
 export const Preco = styled.div`
-
-  width: 328px;
-  margin: 0 auto .5rem;
   display: flex;
   justify-content: space-between;
   p {
-    margin: 0 2rem;
     :nth-child(2) {
       font-weight: bold;
-      color: #E86E5A;
+      color: #e86e5a;
     }
   }
+`;
 
-`
-
-
+export const CarrinhoVazio = styled.p`
+  padding: 2rem 4rem 4rem 2rem;
+  font-size: 18px;
+  margin-left: 6rem;
+`;

@@ -21,7 +21,8 @@ const SignAddressForm = () => {
                         name={"street"}
                         value={form.street}
                         onChange={handleInputOnChange}
-                        label={"Rua/Av."}
+                        label={"Logradouro"}
+                        placeholder={"Rua/Av."}
                         type={"text"}
                         variant={"outlined"}
                         fullWidth
@@ -33,6 +34,7 @@ const SignAddressForm = () => {
                         value={form.number}
                         onChange={handleInputOnChange}
                         label={"Número"}
+                        placeholder={"Número"}
                         type={"number"}
                         variant={"outlined"}
                         fullWidth
@@ -43,18 +45,19 @@ const SignAddressForm = () => {
                         name={"complement"}
                         value={form.complement}
                         onChange={handleInputOnChange}
-                        label={"Apartamento/Bloco"}
+                        label={"Complemento"}
+                        placeholder={"Apto. /Bloco"}
                         type={"text"}
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
-                        required
                     />
                     <TextField
                         name={"neighbourhood"}
                         value={form.neighbourhood}
                         onChange={handleInputOnChange}
                         label={"Bairro"}
+                        placeholder={"Bairro"}
                         type={"text"}
                         variant={"outlined"}
                         fullWidth
@@ -66,6 +69,7 @@ const SignAddressForm = () => {
                         value={form.city}
                         onChange={handleInputOnChange}
                         label={"Cidade"}
+                        placeholder={"Cidade"}
                         type={"text"}
                         variant={"outlined"}
                         fullWidth
@@ -77,6 +81,7 @@ const SignAddressForm = () => {
                         value={form.state}
                         onChange={handleInputOnChange}
                         label={"Estado"}
+                        placeholder={"Estado"}
                         type={"Text"}
                         variant={"outlined"}
                         fullWidth

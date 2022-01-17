@@ -8,6 +8,7 @@ import {
   ButtonRemover,
   InfoCard,
   NomeProduto,
+  QuantidadeContainer
 } from "./styled";
 
 const CardProduto = ({
@@ -49,10 +50,10 @@ const CardProduto = ({
             }
           }}
         >
-          Remover
+          remover
         </ButtonRemover>
       )}
-      {exibirProduto.length > 0 && <span>{exibirProduto[0].quantity}</span>}
+      {exibirProduto.length > 0 && <QuantidadeContainer>{exibirProduto[0].quantity}</QuantidadeContainer>}
     </ProdutoCard>
   );
 };
