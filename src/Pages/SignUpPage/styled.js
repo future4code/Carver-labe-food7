@@ -27,8 +27,10 @@ export const ButtonCadastro = styled.div`
         
   width: 328px;
   height: 42px;
-  padding: 30px 16px;
+  padding: 3px 16px;
   border-radius: 2px;
+  
+
   
 
 `

@@ -62,3 +62,10 @@ export const LoginContainer = styled.div`
 
 `
 
+export const ButtonCadastro = styled.div`
+
+    margin-top: 1.75rem;
+
+
+`
+

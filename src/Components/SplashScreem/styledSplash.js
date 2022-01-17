@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SplashContainer = styled.div `
-    background-color:#e8222e;
+    background-color:#e86e5a;
     width: 100vw;
     height: 100vh;
     display: flex;

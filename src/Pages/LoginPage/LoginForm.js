@@ -48,7 +48,7 @@ const LoginForm = () => {
         />
         </TexfieldLogin>
        <ButtonLogin>
-        <Button fullWidth variant="contained" type="submit">
+        <Button fullWidth variant="contained" type="submit" color="primary">
           <p>Entrar</p>
         </Button>
         </ButtonLogin>

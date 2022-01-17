@@ -17,6 +17,7 @@ import {
   InfoRest,
   CategoriaCard,
 } from "./styled";
+import { Button } from "@mui/material";
 
 const RestaurantPage = () => {
   useProtectedPage();
@@ -92,8 +93,7 @@ const RestaurantPage = () => {
 
   return (
     <div>
-      <button onClick={() => goToHome(history)}>Voltar</button>
-      {restaurante.restaurant && (
+        {restaurante.restaurant && (
         <>
           <PopUp
             aberto={aberto}
