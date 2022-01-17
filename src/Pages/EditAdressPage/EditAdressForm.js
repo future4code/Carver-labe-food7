@@ -71,7 +71,6 @@ const EditAddressForm = () => {
                         variant={"outlined"}
                         fullWidth
                         margin={"dense"}
-                        required
                     />
                     <TextField
                         name={"neighbourhood"}

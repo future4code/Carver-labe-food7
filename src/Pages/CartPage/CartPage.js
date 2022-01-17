@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
-import axios from "axios";
 import { BASE_URL } from "../../constants/URL";
 import GlobalContext from "../../contexts/GlobalContext";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 import { useRequestData } from "../../hooks/useRequestData";
 import { PlaceOrder} from "../../services/Access";
+import { useHistory } from "react-router-dom";
 import CardProduto from "../../components/CardProduto/CardProduto";
 import Header from "../../components/Header/header";
 import Menu from "../../components/Menu/Menu";
-import { dividerClasses, Button } from "@mui/material";
+import { Button } from "@mui/material";
 import {CartContainer, 
         MainContainer, 
         EnderecoCart, 
@@ -19,6 +19,7 @@ import {CartContainer,
 
 const CartPage = () => {
   useProtectedPage();
+  const history = useHistory();
   const {
     carrinho,
     setCarrinho,
@@ -29,7 +30,6 @@ const CartPage = () => {
     removerProduto,
   } = useContext(GlobalContext);
   const [precoTotal, setPrecoTotal] = useState(0);
-  const pedidoAtivo = useRequestData({}, `${BASE_URL}/active-order`);
   const perfil = useRequestData([], `${BASE_URL}/profile`);
   const [data, setData] = useState('');
 
@@ -39,7 +39,7 @@ const CartPage = () => {
       carrinho.products.length > 0 &&
       restaurantePedido.id !== ''
     ) {
-      PlaceOrder(carrinho, restaurantePedido.id, setData)
+      PlaceOrder(carrinho, restaurantePedido.id, setData, history)
       setPedido([])
       setRestaurantePedido({
         id: '',
@@ -169,11 +169,12 @@ const CartPage = () => {
               </div>
 
               <Button
-              onClick={() => confirmarPedido()}
+                onClick={() => confirmarPedido()}
                 type={"button"}
                 variant="contained"
                 color="primary"
                 fullWidth
+                disabled={!carrinho.products || !carrinho.paymentMethod}
               >
                 Confirmar
               </Button>

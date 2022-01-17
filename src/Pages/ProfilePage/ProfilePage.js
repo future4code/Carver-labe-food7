@@ -42,14 +42,12 @@ const ProfilePage = () => {
                 <p id={"email"}>{perfil.user.email}</p>
                 <p id={"cpf"}>{perfil.user.cpf}</p>
                 <Button onClick={() => goToEditProfile(history)}>
-                  Editar
                   <img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/CC94162C-8ED7-463F-A334-C9DEFFBA9211.svg" />
                 </Button>
 
                 <p>Endereço cadastrado </p>
                 <p id={"endereco"}>{perfil.user.address}</p>
                 <Button onClick={() => goToEditAdress(history)}>
-                  Edidar
                   <img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/CC94162C-8ED7-463F-A334-C9DEFFBA9211.svg" />
                 </Button>
               </div>

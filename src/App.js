@@ -3,7 +3,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import Router from "./routes/Router";
 import theme from "./constants/theme";
 import SplashScreen from "./components/SplashScreem/SplashScreem";
-import GlobalStyle from './Global/GlobalStyle';
+import GlobalStyle from './global/GlobalStyle';
 
 function App() {
   return (

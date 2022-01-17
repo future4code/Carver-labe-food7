@@ -31,15 +31,12 @@ export const SignUp = (body, clear, history) => {
     .post(`${BASE_URL}/signup`, body)
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Cadastro realizado com sucesso!");
       clear();
       goToSignAddress(history);
     })
     .catch((err) => {
       console.log(err);
-      alert(
-        "Possiveis erros: senha com menos de 8 caracteres, e-mail já criado, senha igual a de outro usuário!"
-      );
+      alert(err.response.data.message);
     });
 };
 
@@ -52,7 +49,7 @@ export const SignAddress = (body, clear, history) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Endereço cadastrado com sucesso!");
+      alert("Usuário cadastrado com sucesso!");
       clear();
       goToHome(history);
     })
@@ -97,7 +94,7 @@ export const EditAddress = (body, history) => {
     });
 };
 
-export const PlaceOrder = (body, id, setData) => {
+export const PlaceOrder = (body, id, setData, history) => {
   axios
     .post(`${BASE_URL}/restaurants/${id}/order`, body, {
       headers: {
@@ -106,7 +103,8 @@ export const PlaceOrder = (body, id, setData) => {
     })
     .then((res) => {
       setData(res.data);
-      alert(res.data.message)
+      alert("Pedido realizado com sucesso")
+      goToHome(history)
     })
     .catch((err) => {
       alert(err.response.data.message);

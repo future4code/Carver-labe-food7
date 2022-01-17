@@ -4,20 +4,43 @@ import { useHistory } from "react-router-dom";
 import { goToHome, goToCart, goToProfile } from "../../routes/Coordinator";
 import { MenuHome } from "./styled";
 import { Button } from "@mui/material";
+import Home from '../../assets/icones/homepage.svg'
+import HomeColorido from '../../assets/icones/homepage-color.svg'
+import Carrinho from '../../assets/icones/shopping-cart.svg'
+import CarrinhoColorido from '../../assets/icones/shopping-cart-color.svg'
+import Avatar from '../../assets/icones/avatar.svg'
+import AvatarColorido from '../../assets/icones/avatar-color.svg'
+
 
 const Menu = () => {
   useProtectedPage();
   const history = useHistory();
 
-  return (
-    <div>
+  if(window.location.pathname === "/") {
+    return (
       <MenuHome>
-      <Button onClick={() => goToHome(history)}><img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/665B3253-0B10-4DA6-ADB0-B764A98E9A47.svg" /></Button> 
-      <Button onClick={() => goToCart(history)}><img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/6E69D164-038D-459A-B0D8-E2052E60CBB9.svg" /></Button>       
-      <Button onClick={() => goToProfile(history)}><img src="https://cdn.zeplin.io/5dd5ae92669af1bc817c8359/assets/67E026C8-789C-4AEF-AD4F-08BCD42B0795.svg" /></Button>
+        <Button><img src={HomeColorido} alt="ícone home"/></Button>
+        <Button onClick={() => goToCart(history)}><img src={Carrinho} alt="ícone carrinho" /></Button>
+        <Button onClick={() => goToProfile(history)}><img src={Avatar} alt="ícone avatar" /></Button>
       </MenuHome>
-      </div>
-  );
+    )
+  } else if (window.location.pathname === "/carrinho") {
+    return (
+      <MenuHome>
+        <Button onClick={() => goToHome(history)}><img src={Home} alt="ícone home"/></Button>
+        <Button><img src={CarrinhoColorido} alt="ícone carrinho" /></Button>
+        <Button onClick={() => goToProfile(history)}><img src={Avatar} alt="ícone avatar" /></Button>
+      </MenuHome>
+    )
+  } else if (window.location.pathname === "/perfil") {
+    return (
+      <MenuHome>
+        <Button onClick={() => goToHome(history)}><img src={Home} alt="ícone home"/></Button>
+        <Button onClick={() => goToCart(history)}><img src={Carrinho} alt="ícone carrinho" /></Button>
+        <Button><img src={AvatarColorido} alt="ícone avatar" /></Button>
+      </MenuHome>
+    )
+  } 
 };
 
 export default Menu;

@@ -17,7 +17,7 @@ const SignUpForm = () => {
         if(form.password === form.password2){
             SignUp(form, clear, history)
         } else {
-            alert("Sua senha não é igual a confirmação")
+            alert("As senhas informadas não são iguais")
         }
     }
    
@@ -29,7 +29,8 @@ const SignUpForm = () => {
                         name={"name"}
                         value={form.username}
                         onChange={handleInputOnChange}
-                        label={"Nome"}                       
+                        label={"Nome"} 
+                        placeholder="Nome e sobrenome"                      
                         type={"name"}
                         variant={"outlined"}
                         fullWidth
@@ -38,11 +39,11 @@ const SignUpForm = () => {
                     />
                     
                     <TextField
-                        
                         name={"email"}
                         value={form.email}
                         onChange={handleInputOnChange}
-                        label={"E-mail"}                        
+                        label={"E-mail"} 
+                        placeholder="email@email.com"                       
                         type={"email"}
                         variant={"outlined"}
                         fullWidth
@@ -54,7 +55,8 @@ const SignUpForm = () => {
                         name={"cpf"}
                         value={form.cpf}
                         onChange={handleInputOnChange}
-                        label={"CPF:000.000.000-00"}
+                        label={"CPF"}
+                        placeholder="000.000.000-00"
                         type={"cpf"}
                         variant={"outlined"}
                         fullWidth
@@ -67,6 +69,7 @@ const SignUpForm = () => {
                         value={form.password}
                         onChange={handleInputOnChange}
                         label={"Senha"}
+                        placeholder="Mínimo de 6 caracters"
                         type={"password"}
                         variant={"outlined"}
                         fullWidth
@@ -78,7 +81,8 @@ const SignUpForm = () => {
                         name={"password2"}
                         value={form.password2}
                         onChange={handleInputOnChange}
-                        label={"Confirmar Senha"}
+                        label={"Confirmar"}
+                        placeholder="Confirme a senha anterior"
                         type={"password"}
                         variant={"outlined"}
                         fullWidth
@@ -88,7 +92,7 @@ const SignUpForm = () => {
                     </TexfieldContainer>
                     <ButtonCadastro>
                     <Button fullWidth variant="contained" type="submit" color="primary">
-                     <p>Cadastrar</p>
+                     <p>Criar</p>
                      </Button>      
                      </ButtonCadastro>
                            

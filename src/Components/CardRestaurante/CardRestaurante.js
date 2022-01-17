@@ -19,7 +19,7 @@ const CardRestaurante = (props) => {
         <RestauranteCardText>{props.name}</RestauranteCardText>
       </div>
       <TempoEntrega>{props.deliveryTime} min</TempoEntrega>
-      <FretCard>Frete R$ {props.shipping}</FretCard>
+      <FretCard>Frete R$ {props.shipping.toFixed(2).replace(".", ",")}</FretCard>
     </CardContainer>
   );
 };

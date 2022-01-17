@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
+import "../assets/fonts/fonts.css";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -6,8 +7,7 @@ const GlobalStyle = createGlobalStyle`
     height: 667px;
     margin: 0 auto;
     position: relative;
-    font-family: 'Roboto', sans-serif;
-    
+    font-family: 'Roboto', sans-serif;  
   }
 `;
 
