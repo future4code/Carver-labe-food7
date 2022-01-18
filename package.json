@@ -21,7 +21,8 @@
     "react-router-dom": "^5.3.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^1.2.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "sweetalert2": "^11.3.6"
   },
   "scripts": {
     "start": "react-scripts start",

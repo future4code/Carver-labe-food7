@@ -15,7 +15,6 @@ const ProfilePage = () => {
   const history = useHistory();
   const perfil = useRequestData([], `${BASE_URL}/profile`);
   const pedidos = useRequestData([], `${BASE_URL}/orders/history`);
-  console.log(pedidos);
 
   const listarPedidos =
     pedidos &&
