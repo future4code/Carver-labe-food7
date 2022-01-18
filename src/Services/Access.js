@@ -7,6 +7,8 @@ import {
   goToSignUp,
 } from "../routes/Coordinator";
 
+import { MessageArea } from "../assets/alert/alert";
+
 export const Login = (body, history) => {
   axios
     .post(`${BASE_URL}/login`, body)
@@ -19,7 +21,7 @@ export const Login = (body, history) => {
       }
     })
     .catch((err) => {
-      alert(err.response.data.message);
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
       if (err.response.data.message === "Usuário não encontrado") {
         goToSignUp(history);
       }
@@ -35,8 +37,7 @@ export const SignUp = (body, clear, history) => {
       goToSignAddress(history);
     })
     .catch((err) => {
-      console.log(err);
-      alert(err.response.data.message);
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
     });
 };
 
@@ -49,13 +50,15 @@ export const SignAddress = (body, clear, history) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Usuário cadastrado com sucesso!");
+      MessageArea.fire({title: "Usuário cadastrado com sucesso!",
+        background: "#e86e5a",
+        color: "#ffffff",
+      });
       clear();
       goToHome(history);
     })
     .catch((err) => {
-      console.log(err.response.data.message);
-      alert("Ocorreu um erro! Tente novamente!");
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
     });
 };
 
@@ -67,12 +70,14 @@ export const EditProfile = (body, history) => {
       },
     })
     .then((res) => {
-      console.log(res.data.user);
-      alert("Perfil atualizado com sucesso!");
+      MessageArea.fire({title: "Perfil atualizado com sucesso!",
+        background: "#e86e5a",
+        color: "#ffffff",
+      });
       goToProfile(history);
     })
     .catch((err) => {
-      console.log(err.message);
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
     });
 };
 
@@ -85,12 +90,14 @@ export const EditAddress = (body, history) => {
     })
     .then((res) => {
       localStorage.setItem("token", res.data.token);
-      alert("Endereço atualizado com sucesso!");
+      MessageArea.fire({title: "Endereço atualizado com sucesso!",
+        background: "#e86e5a",
+        color: "#ffffff",
+      });
       goToProfile(history);
     })
     .catch((err) => {
-      console.log(err.message);
-      alert("Ocorreu um erro! Tente novamente!");
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
     });
 };
 
@@ -103,10 +110,13 @@ export const PlaceOrder = (body, id, setData, history) => {
     })
     .then((res) => {
       setData(res.data);
-      alert("Pedido realizado com sucesso")
+      MessageArea.fire({title: "Pedido realizado com sucesso",
+        background: "#e86e5a",
+        color: "#ffffff",
+      });
       goToHome(history)
     })
     .catch((err) => {
-      alert(err.response.data.message);
+      MessageArea.fire({title: err.response.data.message, icon: "error"});
     });
 };

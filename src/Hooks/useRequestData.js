@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import { MessageArea } from "../assets/alert/alert";
+
 export const useRequestData = (initialData, url) => {
   const [data, setData] = useState(initialData)
 
@@ -14,7 +16,7 @@ export const useRequestData = (initialData, url) => {
       setData(response.data)
     })
     .catch((error) => {
-      console.log(error)
+      MessageArea.fire({title: error.response.data.message, icon: "error"});
     }) 
   }, [url])
 

@@ -14,6 +14,14 @@ export const ImgRestaurant = styled.div`
       height: 8rem;
       border-radius: 20px 20px 0 0;
     }
+
+    @media (min-width: 800px) {
+      width: 26vw;
+
+      img{
+        width: 26vw;
+      }
+    }
 `
 
 export const DetalhesRest = styled.div`
